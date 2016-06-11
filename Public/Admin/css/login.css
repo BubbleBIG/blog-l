@@ -1,0 +1,21 @@
+
+    html{font-size:17px;}
+    input{font-size: 16px;padding-left: 5px;}
+    fieldset{width:440px; margin: 0 auto;height: 250px;}
+    legend{font-weight:bold; font-size:16px;}
+    .log label{float:left; width:70px; margin-left:80px;margin-top: 3px;}
+    .form-group{margin-left: 115px;margin-bottom: 15px;font-size: 14px;}
+    .button input{margin-right: 62px;}
+    /*.right{flex: both;}*/
+    .login{margin-top: 90px;}
+    .left{margin-left:150px;margin-top: 20px;}
+    .input{width:160px;height:22px;}
+    /*.right{float:right;font-size: 14px;margin-right: 150px;margin-top: -17px;color: #8d8d8d}*/
+    span{color: #666666;}
+    .code {
+        /*width: 100px;
+        margin-left: 10px;*/
+        /*margin-top: -10px;*/
+        vertical-align:middle;
+
+    }

@@ -1,0 +1,103 @@
+body {
+    background:#2d3b36 url(../img/1.png)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top:20px;
+    height: 1000px;
+
+}
+#editor {
+
+}
+.menu {
+    background: #ededed;
+
+}
+.tit {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    width: 30%;
+
+
+}
+.tit input {
+    font-size: 18px;
+    height: 40px;
+}
+#edit {
+
+}
+.se {
+    margin-top: 25px;
+}
+.nav-pills li {
+    margin-right: 1%;
+    margin-left: 2%;
+    font-size: 18px;
+
+
+    /*border: 2px;*/
+}
+.nav-pills li a {
+    color: #fe70c7;
+}
+.nav li {
+    list-style:none;
+    display: inline-block;
+}
+.blo {
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.blo li {
+    font-size: 17px;
+}
+.blo li a {
+    /*color: #00aa00;*/
+    /*color: #654b8c;*/
+    color: #0096ff;
+}
+.se .btn {
+    margin-left: 20px;
+    font-size: 16px;
+    border: none;
+}
+.se .btn:hover {
+    background: #77eec6;
+    color: #fff;
+}
+.logout {
+    margin-top: 11px;
+}
+.logout a{
+    font-size: 18px;
+    border: none;
+    color: #fe70c7;
+    background: #ededed;
+    /*padding: 2px;*/
+    margin-right: 18px;
+    text-decoration: none;
+}
+.logout a:hover {
+    color: red;
+    font-weight:bolder;
+}
+#tag {
+    width: 130px;
+   /* margin-left: 10px;
+    vertical-align:middle;*/
+    margin-right: 8px;
+
+
+}
+.table {
+    background: #ededed;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 16px;
+    margin-top: 4%;
+}

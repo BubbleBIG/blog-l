@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<div id='main'>
+        <foreach name='blog' item='v'>
+
+
+                <div align="center" class='title' style="font-size: 21px;"><a href="#{:U('/' .$v['id'])}">{$v.title}</a></div>
+
+                <div class='summary' style="font-size: 14px;"><p>{$v.content}</p></div>
+
+
+                <div align="right" class="more" style="font-size: 14px;"><a href="#{:U('/' .$v['id'])} ">阅读全文</a></div>
+                <div align="right" class='time'>{$v.createtime}</div><br>
+        </foreach>
+
+
+</div>
+</body>
+</html>
