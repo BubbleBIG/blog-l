@@ -22,19 +22,23 @@ body {
     /*background: #58626D;*/
     width: 25%;
     height: 1100px;
-    margin-right: 9%;
+    margin-right: 10%;
 
 }
 
 .pull-left {
     /*color: #00A000;*/
     /*background: #585858;*/
-    background: #fff;
-    width: 56%;
+    background: #ffe;
+    width: 55%;
     /*height: 100%;*/
     margin-left: 10%;
+    padding: 1%;
 }
 .pull-left ul li {
+    display: inline-block;
+}
+.menu ul li {
     display: inline-block;
 }
 /*.scar .btn {
@@ -44,8 +48,8 @@ body {
 .navigator li {
     display: inline-block;
 }
-#navigator {
-    margin-right: 34%;
+.nav {
+    margin-right: 20%;
 }
 .he {
 

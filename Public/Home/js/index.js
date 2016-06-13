@@ -1,7 +1,7 @@
 $(function(){
-    $('#Contents').click(function() {
-    $('#cont').load('./Contents.html');
-});
+//     $('#Contents').click(function() {
+//     $('#cont').load("./Contents.html");
+// });
     $('#View').click(function() {
         $('#cont').load('./View.html');
     });
@@ -14,4 +14,10 @@ $(function(){
     $(document).ready(function() {
         $('.ca').load('./Ca.html');
     })
+    $(document).ready(function() {
+        $('#cont').load('./Contents.html');
+    })
+    // $('#id').click(function() {
+    //     $('#cont').load('./id.html');
+    // })
 });

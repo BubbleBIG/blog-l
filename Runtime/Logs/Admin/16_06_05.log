@@ -1,0 +1,60 @@
+[ 2016-06-05T19:03:33+08:00 ] 127.0.0.1 /blog/index.php/Admin/
+ERR: 无法加载控制器:Index
+
+[ 2016-06-05T19:04:33+08:00 ] 127.0.0.1 /blog/index.php/Admin/
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2016-06-05T19:09:51+08:00 ] 127.0.0.1 /blog/index.php/Admin/manager
+ERR: 无法加载控制器:Manager
+
+[ 2016-06-05T19:10:04+08:00 ] 127.0.0.1 /blog/index.php/Admin/manager/login
+ERR: 无法加载控制器:Manager
+
+[ 2016-06-05T19:10:21+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/login
+ERR: 无法加载控制器:Manager
+
+[ 2016-06-05T19:13:13+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/login
+ERR: 模板不存在:E:/Wamp/www/blog/Admin/View/Manager/login.html
+
+[ 2016-06-05T19:16:17+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/css/login.css
+ERR: 非法操作:css
+
+[ 2016-06-05T19:16:17+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/js/login.js
+ERR: 非法操作:js
+
+[ 2016-06-05T19:25:47+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/js/login.js
+ERR: 非法操作:js
+
+[ 2016-06-05T19:25:47+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/css/login.css
+ERR: 非法操作:css
+
+[ 2016-06-05T19:25:52+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/css/login.css
+ERR: 非法操作:css
+
+[ 2016-06-05T19:25:58+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/css/login.css
+ERR: 非法操作:css
+
+[ 2016-06-05T19:25:58+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/js/login.js
+ERR: 非法操作:js
+
+[ 2016-06-05T19:27:53+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/css/login.css
+ERR: 非法操作:css
+
+[ 2016-06-05T19:27:53+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/js/login.js
+ERR: 非法操作:js
+
+[ 2016-06-05T19:32:29+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/login.php
+ERR: 非法操作:login.php
+
+[ 2016-06-05T19:32:59+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/login.php
+ERR: 非法操作:login.php
+
+[ 2016-06-05T19:33:04+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/login.php
+ERR: 非法操作:login.php
+
+[ 2016-06-05T19:33:19+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/login.php
+ERR: 非法操作:login.php
+
+[ 2016-06-05T22:24:23+08:00 ] 127.0.0.1 /blog/index.php/Admin/Manager/_ROOT_/APP_NAMEPunlic/login.css
+ERR: 非法操作:_ROOT_
+
