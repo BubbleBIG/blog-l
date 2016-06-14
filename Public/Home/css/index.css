@@ -40,6 +40,10 @@ body {
 }
 .menu ul li {
     display: inline-block;
+
+}
+.menu a:hover {
+    text-decoration: none;
 }
 /*.scar .btn {
 
@@ -50,6 +54,9 @@ body {
 }
 .nav {
     margin-right: 20%;
+}
+.contents-btn {
+    margin-right: 35%;
 }
 .he {
 

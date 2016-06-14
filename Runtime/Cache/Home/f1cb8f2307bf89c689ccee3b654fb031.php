@@ -11,13 +11,7 @@
     <script src="<?php echo (JS_URL); ?>jquery.min.js"></script>
 
     <script src="<?php echo (JS_URL); ?>bootstrap.min.js"></script>
-    <!-- <script src="<?php echo (JS_URL); ?>index1.js"></script> -->
-    <style type="text/css">
-        .con a:hover {
-        text-decoration: none;
-    }
-    </style>
-
+    <script src="<?php echo (JS_URL); ?>index.js"></script>
 
 </head>
 <body>
@@ -64,61 +58,52 @@
     </div>
 
 </div>
-<div id="navigator">
-    <div class="navigator" align="right">
+<div class="menu" >
+    <div class="contents-btn" align="right">
         <ul  class="con" >
 
             <li  >
-                <button  id="Contents" class="btn btn-default" type="button" value="Contents"><a href="<?php echo U('index');?>">Contents</a></button>
+                <div class="btn btn-default ">
+                <a href="<?php echo U('index');?>">摘要列表</a>
+                </div>
             </li>
             <li>
-                <input id="View" class="btn btn-default" type="button" value="View">
+                <div class="btn btn-default">
+                <a href="<?php echo U('Contents');?>">标题列表</a>
+                </div>
             </li>
             <li>
-                <input id="Other" class="btn btn-default" type="button" value="Other">
+                <div class="btn btn-default">
+                <a href="#">留言板</a>
+                </div>
             </li>
-            <!--<li>-->
-            <!--<div  class="form">-->
-
-            <!--<form action="" method="post" class="form-inline" >-->
-            <!--<div class="form-group input">-->
-            <!--<input class="form-control" type="text" name="search" placeholder="内容搜索">-->
-            <!--</div>-->
-            <!--<div class="form-group input">-->
-            <!--<button type="submit" class="btn btn-default"><span class=""></span>搜索</button>-->
-            <!--</div>-->
-            <!--</form>-->
-            <!--</div>-->
-            <!--</li>-->
         </ul>
-        </div>
+    </div>
+</div>
+<div class="pull-left" id="cont">
+    <div id='main'>
+        <?php if(is_array($id)): foreach($id as $key=>$v): ?><div align="center" class='title' style="font-size: 21px;"><?php echo ($v["title"]); ?></div>
+
+                <div class='summary' style="font-size: 14px;"><p><?php echo ($v["content"]); ?></p></div>
+<!--
+
+                <div align="right" class="more" style="font-size: 14px;"><a href="#<?php echo U('/' .$v['id']);?> ">阅读全文</a></div> -->
+                <div align="right" class='time'><?php echo ($v["createtime"]); ?></div><br><?php endforeach; endif; ?>
     </div>
 
-
+        <div class="left"></div>
+        <div  ></div>
+    </div>
 <div class="body">
 <div class="pull-right">
 
-    <div class="info">
-    <div class="he ca" align='center'><p>Content-Search</p></div>
-<div class="panel_head"></div>
-        <div  class="form">
-        <form action="#" name="search">
-        <table border="0" cellpadding="0" cellspacing="0" class="tab_search" align="center">
-            <tr>
-                <td>
-                    <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="10"/>
-                </td>
-                <td>
-                    <input type="image" width="21" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="<?php echo (IMG_URL); ?>search.png" border="0" hspace="2"/>
-                </td>
-            </tr>
-        </table>
-        </form>
-        </div>
+     <div class="info">
+    <div class="he ca" align='center'><p>Calendar</p></div>
+
 
     </div>
-    <!-- <div class="sea" >
-    <div class="he" align="center"><span></span></div>
+    <div class="sea" >
+    <div class="he" align="center"><span>Content-Search</span></div>
        <div class="panel_head"></div>
         <div  class="form">
         <form action="#" name="search">
@@ -133,9 +118,8 @@
             </tr>
         </table>
         </form>
-
         </div>
-    </div> -->
+    </div>
     <div class="tag-view">
     <div class="he" align="center"><p>Taglist</p></div>
 
@@ -159,36 +143,7 @@
     </div>
 
 </div>
-
-    <div class="sear pull-left">
-
-
-    </div>
-    <div class="pull-left" id="cont">
-    <div id='main'>
-        <?php if(is_array($id)): foreach($id as $key=>$v): ?><div align="center" class='title' style="font-size: 21px;"><?php echo ($v["title"]); ?></div>
-
-                <div class='summary' style="font-size: 14px;"><p><?php echo ($v["content"]); ?></p></div>
-<!--
-
-                <div align="right" class="more" style="font-size: 14px;"><a href="#<?php echo U('/' .$v['id']);?> ">阅读全文</a></div> -->
-                <div align="right" class='time'><?php echo ($v["createtime"]); ?></div><br><?php endforeach; endif; ?>
-<!-- <div><?php echo ($list); ?></div> -->
-
 </div>
-
-        <div class="left"></div>
-        <div  ></div>
-    </div>
-
-</div>
-<script>
-// $(function(){
-//     $('#Contents').click(function() {
-//     $('#cont').load("<?php echo U(Content);?>");
-// });
-// }
-</script>
 </body>
 
 </html>

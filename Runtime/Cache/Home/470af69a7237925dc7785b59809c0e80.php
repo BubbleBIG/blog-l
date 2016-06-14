@@ -58,8 +58,30 @@
     </div>
 
 </div>
-<div class="menu nav nav-pills" >
-<!-- <nav class=""> -->
+<div class="menu" >
+    <div class="contents-btn" align="right">
+        <ul  class="con" >
+
+            <li  >
+                <!-- <button  id="Contents" class="btn btn-default" type="button" value="Contents"> -->
+                <div class="btn btn-default ">
+                <a href="#">摘要列表</a>
+                </div>
+            </li>
+            <li>
+                <div class="btn btn-default">
+                <a href="<?php echo U('Contents');?>">标题列表</a>
+                </div>
+            </li>
+            <li>
+                <div class="btn btn-default">
+                <a href="#">留言板</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- <div class="menu nav nav-pills" >
   <div class="na" align="right">
 
     <ul class="nav nav-pills nav-stacked" >
@@ -69,41 +91,59 @@
     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
 
   </ul>
-        </div>
- </div>
+  </div>
+ </div> -->
 
-    <div class="pull-left" >
+<div class="pull-left" >
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-
-
-<table id="list" width="100%">
-
- <?php if(is_array($blog)): foreach($blog as $key=>$v): ?><tr>
-               <td > <div id="id" align="center" class='title' style="font-size: 21px;"><a id="id" href="<?php echo U('id',array('id'=>$v['id']));?>"><?php echo ($v["title"]); ?></a></div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                <div class='summary' style="font-size: 14px;"><p><?php echo ($v["content"]); ?></p></div>
-                <!-- <div align="right" class="more" style="font-size: 14px;"><a href="#<?php echo U('/' .$v['id']);?> ">阅读全文</a></div> -->
-                </td>
-                </tr>
-                <tr width="100%" align="right">
-                <td >
-                <div class='time'>发布于：<?php echo ($v["createtime"]); ?> &nbsp;&nbsp;标签：<?php echo ($v["tag"]); ?></div>
-                </td>
-                </tr><?php endforeach; endif; ?>
+    <table id="list" width="100%">
+    <?php if(is_array($blog)): foreach($blog as $key=>$v): ?><tr>
+            <td >
+            <div id="id" align="center" class='title' style="font-size: 22px;"><a id="" href="<?php echo U('read',array('id'=>$v['id']));?>"><?php echo ($v["title"]); ?></a>
+            </div>
+            </td>
         </tr>
-</table>
-<br>
-<div align="center" id="changpage"></div>
-
+        <tr>
+            <td><div style="color: gray; font-size: 12px;">&nbsp;标签：<?php echo ($v["tag"]); ?></div></td>
+        </tr>
+        <tr>
+            <td>
+            <div class='summary' style="font-size: 14px;"><p><?php echo ($v["summary"]); ?></p></div>
+            </td>
+        </tr>
+        <tr width="100%" align="right">
+            <td >
+            <div class='time' style="color: gray;font-size: 12px;">发布于：<?php echo ($v["createtime"]); ?></div>
+            </td>
+        </tr><?php endforeach; endif; ?>
+    </table>
+      <br>
+     <div align="center" id="changpage"></div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile">2.</div>
-    <div role="tabpanel" class="tab-pane" id="messages">3.</div>
+    <!-- <div role="tabpanel" class="tab-pane" id="profile">
+        <table id='' width="100%">
+        <?php if(is_array($blog)): foreach($blog as $key=>$v): ?><tr>
+            <td> <div id="id" class='title' style="font-size: 22px;" ><a id="" href="<?php echo U('id',array('read'=>$v['id']));?>"><?php echo ($v["title"]); ?></a></div>
+            </td>
+        </tr>
+        <tr>
+        <td>
+            <div class="" style="color: gray;font-size: 12px;">标签：<?php echo ($v["tag"]); ?></div>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <div align="right" class='time' style="font-size: 12px;color: gray;">发布日期：<?php echo ($v["createtime"]); ?></div>
+        </td>
+        </tr><?php endforeach; endif; ?>
+        </table>
+        <div align="center" id="changpage1"></div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="messages">3.</div> -->
   </div>
-  </div>
+</div>
 
 <div class="body">
 <div class="pull-right">
@@ -170,46 +210,7 @@
 
 
 </div>
-<script language="javascript">
-var obj,j;
-var page=0;
-var nowPage=0;//当前页
-var listNum=15;//每页显示<ul>数
-var PagesLen;//总页数
-var PageNum=4;//分页链接接数(5个)
-onload=function(){
-obj=document.getElementById("list").getElementsByTagName("tr");
-j=obj.length
-PagesLen=Math.ceil(j/listNum);
-upPage(0)
-}
-function upPage(p){
-nowPage=p
-//内容变换
-for (var i=0;i<j;i++){
-obj[i].style.display="none"
-}
-for (var i=p*listNum;i<(p+1)*listNum;i++){
-if(obj[i])obj[i].style.display="block"
-}//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
-//分页链接变换
-strS='<a href="###" onclick="upPage(0)">首页</a>  '
-var PageNum_2=PageNum%2==0?Math.ceil(PageNum/2)+1:Math.ceil(PageNum/2)
-var PageNum_3=PageNum%2==0?Math.ceil(PageNum/2):Math.ceil(PageNum/2)+1
-var strC="",startPage,endPage;
-if (PageNum>=PagesLen) {startPage=0;endPage=PagesLen-1}
-else if (nowPage<PageNum_2){startPage=0;endPage=PagesLen-1>PageNum?PageNum:PagesLen-1}//首页
-else {startPage=nowPage+PageNum_3>=PagesLen?PagesLen-PageNum-1: nowPage-PageNum_2+1;var t=startPage+PageNum;endPage=t>PagesLen?PagesLen-1:t}
-for (var i=startPage;i<=endPage;i++){
- if (i==nowPage)strC+='<a href="###" style="color:red;font-weight:700;" onclick="upPage('+i+')">'+(i+1)+'</a> '
- else strC+='<a href="###" onclick="upPage('+i+')">'+(i+1)+'</a> '
-}//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
-strE=' <a href="###" onclick="upPage('+(PagesLen-1)+')">尾页</a>  '
-strE2=nowPage+1+"/"+PagesLen+"页"+"  共"+(j/3+2)+"条"
-document.getElementById("changpage").innerHTML=strS+strC+strE+strE2
-}
-</script>
-
+<script src="<?php echo (JS_URL); ?>page.js"></script>
 <script>
 $(function(){
   $('.nav a').click(function (e) {
@@ -217,11 +218,6 @@ $(function(){
   $(this).tab('show')
 })
    });
-$(function(){
-    $('#Contents').click(function() {
-    $('#cont').load("<?php echo U(Contents);?>");
-});
-})
 </script>
 </body>
 

@@ -1,18 +1,16 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}index.css">
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>index.css">
 
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>bootstrap.min.css">
 
-    <script src="{$Think.const.JS_URL}jquery.min.js"></script>
+    <script src="<?php echo (JS_URL); ?>jquery.min.js"></script>
 
-    <script src="{$Think.const.JS_URL}bootstrap.min.js"></script>
-    <script src="{$Think.const.JS_URL}index.js"></script>
-
+    <script src="<?php echo (JS_URL); ?>bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container header">
@@ -63,14 +61,13 @@
         <ul  class="con" >
 
             <li  >
-                <!-- <button  id="Contents" class="btn btn-default" type="button" value="Contents"> -->
                 <div class="btn btn-default ">
-                <a href="{:U('index')}">摘要列表</a>
+                <a href="<?php echo U('index');?>">摘要列表</a>
                 </div>
             </li>
             <li>
                 <div class="btn btn-default">
-                <a href="#">标题列表</a>
+                <a href="<?php echo U('Contents');?>">标题列表</a>
                 </div>
             </li>
             <li>
@@ -81,65 +78,24 @@
         </ul>
     </div>
 </div>
-<div class="pull-left" >
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane" id="home">
-    <table id="list" width="100%">
-    <foreach name='blog' item='v'>
-        <tr>
-            <td >
-            {$v.title}
-            </div>
-            </td>
-        </tr>
-        <tr>
-           <td>{$v.tag}</td>
-        </tr>
-        <tr>
-            <td>
-            {$v.summary}</div>
-            </td>
-        </tr>
-        <tr>
-            <td >
-            发布于：{$v.createtime}
-            </td>
-        </tr>
-    </foreach>
-    </table>
-      <br>
-     <div align="center" id="changpage"></div>
-    </div>
-    <div role="tabpanel" class="tab-pane  active" id="profile">
-        <table id='' width="100%">
-        <foreach name='blog' item='v'>
-        <tr>
-            <td> <div id="id" class='title' style="font-size: 22px;" ><a id="" href="{:U('read',array('id'=>$v['id']))}">{$v.title}</a></div>
-            </td>
-        </tr>
-        <tr>
-        <td>
-            <div class="" style="color: gray;font-size: 12px;">标签：{$v.tag}</div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-            <div align="right" class='time' style="font-size: 12px;color: gray;">发布日期：{$v.createtime}</div>
-        </td>
-        </tr>
-        </foreach>
-        </table>
-        <div align="center" id="changpage1"></div>
+<div class="pull-left" id="cont">
+    <div id='main'>
+        <?php if(is_array($id)): foreach($id as $key=>$v): ?><div align="center" class='title' style="font-size: 21px;"><?php echo ($v["title"]); ?></div>
+
+                <div class='summary' style="font-size: 14px;"><p><?php echo ($v["content"]); ?></p></div>
+<!--
+
+                <div align="right" class="more" style="font-size: 14px;"><a href="#<?php echo U('/' .$v['id']);?> ">阅读全文</a></div> -->
+                <div align="right" class='time'><?php echo ($v["createtime"]); ?></div><br><?php endforeach; endif; ?>
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="messages">3.</div>
-  </div>
-</div>
-
+        <div class="left"></div>
+        <div  ></div>
+    </div>
 <div class="body">
 <div class="pull-right">
 
-    <div class="info">
+     <div class="info">
     <div class="he ca" align='center'><p>Calendar</p></div>
 
 
@@ -155,7 +111,7 @@
                     <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="10"/>
                 </td>
                 <td>
-                    <input type="image" width="21" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="{$Think.const.IMG_URL}search.png" border="0" hspace="2"/>
+                    <input type="image" width="21" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="<?php echo (IMG_URL); ?>search.png" border="0" hspace="2"/>
                 </td>
             </tr>
         </table>
@@ -185,20 +141,7 @@
     </div>
 
 </div>
-
-    <div class="sear pull-left">
-
-    </div>
 </div>
-<script src="{$Think.const.JS_URL}page.js"></script>
-<script>
-$(function(){
-  $('.nav a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
-   });
-</script>
 </body>
 
 </html>
