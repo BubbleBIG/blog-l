@@ -1,19 +1,19 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>index.css">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}index.css">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>bootstrap.min.css">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
 
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="<?php echo (JS_URL); ?>jquery.min.js"></script>
+    <script src="{$Think.const.JS_URL}jquery.min.js"></script>
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="<?php echo (JS_URL); ?>bootstrap.min.js"></script>
-    <script src="<?php echo (JS_URL); ?>index.js"></script>
+    <script src="{$Think.const.JS_URL}bootstrap.min.js"></script>
+    <script src="{$Think.const.JS_URL}index.js"></script>
 </head>
 <body>
 <div class="container header">
@@ -59,37 +59,32 @@
     </div>
 
 </div>
-<div id="navigator">
-    <div class="navigator_bg">
-    </div>
-    <div class="navigator" align="right">
-        <ul  class="">
+<div class="pull-right menu_right" align = "right">
 
-            <li  >
-                <input id="Contents" class="btn btn-default" type="button" value="Contents">
-            </li>
-            <li>
-                <input id="View" class="btn btn-default" type="button" value="View">
-            </li>
-            <li>
-                <input id="Other" class="btn btn-default" type="button" value="Other">
-            </li>
-            <!--<li>-->
-            <!--<div  class="form">-->
+  <div class="nav nav-pills">
+<!-- <nav class=""> -->
+  <div class="na">
 
-            <!--<form action="" method="post" class="form-inline" >-->
-            <!--<div class="form-group input">-->
-            <!--<input class="form-control" type="text" name="search" placeholder="内容搜索">-->
-            <!--</div>-->
-            <!--<div class="form-group input">-->
-            <!--<button type="submit" class="btn btn-default"><span class=""></span>搜索</button>-->
-            <!--</div>-->
-            <!--</form>-->
-            <!--</div>-->
-            <!--</li>-->
-        </ul>
-        </div>
-    </div>
+    <ul class="nav nav-pills nav-stacked">
+     <!-- <ul class="nav nav-tabs" role="tablist"> -->
+    <li role="presentation" class="active"><a href="#Labelclass" aria-controls="Labelclass" role="tab" data-toggle="tab">标签分类</a></li>
+    <li role="presentation"><a href="#ContentsSummary" aria-controls="ContentsSummary" role="tab" data-toggle="tab">目录摘要</a></li>
+    <li role="presentation"><a href="#MessageManage" aria-controls="MessageManage" role="tab" data-toggle="tab">留言管理</a></li>
+
+    </ul>
+
+  </div>
+<!-- </nav> -->
+</div>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="Labelclass">...2</div>
+    <div role="tabpanel" class="tab-pane" id="ContentsSummary">.3..</div>
+    <div role="tabpanel" class="tab-pane" id="MessageManage">.5..</div>
+  </div>
+
+</div>
 
 
 <div class="body">
@@ -115,6 +110,7 @@
     <div class="message">
         <div id="message" class="mess">
             <label class="lab"><h4>message</h4></label>
+            <div id="1"></div>
 
         </div>
         <div id="mess-view" class=""></div>
@@ -127,7 +123,7 @@
     </div>
 </div>
 
-    <div class="sear pull-right">
+    <!-- <div class="sear pull-right">
 
 
     </div>
@@ -135,7 +131,16 @@
 
         <div class="right"><p>right<br>hello world<br>hello world<br>hello world<br>hello world</p></div>
         <div  ></div>
-    </div>
+    </div> -->
 </div>
+<script>
+
+$(function(){
+  $('.nav a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+   });
+   </script>
 </body>
 </html>

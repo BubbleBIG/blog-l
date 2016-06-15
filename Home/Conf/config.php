@@ -16,3 +16,4 @@ return array(
    'DB_RW_SEPARATE' => false, // 数据库读写是否分离 主从式有效
 'TMPL_VAR_IDENTIFY' => 'array',
 );
+?>

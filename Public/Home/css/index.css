@@ -45,10 +45,31 @@ body {
 .menu a:hover {
     text-decoration: none;
 }
-/*.scar .btn {
+.bt {
+    font-size: 15pt;
+    padding: 0px;
+    margin-left: 8px;
+    border-radius: 29%;
+}
+.con .bt  {
+    /*background: #fbbfde;*/
+    /*background: #049a03;*/
+    background: #40caee;
 
-    margin-right: 10px;
-}*/
+}
+.con .bt:hover {
+    background: #fe70c7;
+}
+.bt a {
+    color: #fff;
+}
+.bt a:hover {
+    color: #fff;
+}
+.bt a:link {
+    text-decoration: none;
+    color: #fff;
+}
 .navigator li {
     display: inline-block;
 }
@@ -68,6 +89,8 @@ body {
      height: 250px;
      background: #ffe;
      margin: 0 2% 2% 2%;
+     overflow :hidden;
+    text-overflow: ellipsis;
  }
 .sea {
     width: 95%;
