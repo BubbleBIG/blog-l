@@ -121,27 +121,6 @@
       <br>
      <div align="center" id="changpage"></div>
     </div>
-    <!-- <div role="tabpanel" class="tab-pane" id="profile">
-        <table id='' width="100%">
-        <?php if(is_array($blog)): foreach($blog as $key=>$v): ?><tr>
-            <td> <div id="id" class='title' style="font-size: 22px;" ><a id="" href="<?php echo U('id',array('read'=>$v['id']));?>"><?php echo ($v["title"]); ?></a></div>
-            </td>
-        </tr>
-        <tr>
-        <td>
-            <div class="" style="color: gray;font-size: 12px;">标签：<?php echo ($v["tag"]); ?></div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-            <div align="right" class='time' style="font-size: 12px;color: gray;">发布日期：<?php echo ($v["createtime"]); ?></div>
-        </td>
-        </tr><?php endforeach; endif; ?>
-        </table>
-        <div align="center" id="changpage1"></div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="messages">3.</div> -->
   </div>
 </div>
 
@@ -161,10 +140,10 @@
         <table border="0" cellpadding="0" cellspacing="0" class="tab_search" align="center">
             <tr>
                 <td>
-                    <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="10"/>
+                    <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="14"/>
                 </td>
                 <td>
-                    <input type="image" width="21" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="<?php echo (IMG_URL); ?>search.png" border="0" hspace="2"/>
+                    <input type="image" width="" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="<?php echo (IMG_URL); ?>search.png" border="0" hspace="2"/>
                 </td>
             </tr>
         </table>
@@ -181,6 +160,7 @@
     </div>
     <div class="tag-view">
     <div class="he" align="center"><p>Taglist</p></div>
+    <?php if(is_array($blog)): foreach($blog as $key=>$v): ?><div><?php echo ($v["tag"]); ?></div><?php endforeach; endif; ?>
 
     </div>
     <div class="message">

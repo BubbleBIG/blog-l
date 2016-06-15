@@ -2,7 +2,7 @@
 return array(
 	//'配置项'=>'配置值'
     //url 模式设置 0,1,2,3
-    'URL_MODEL' =>1,
+    'URL_MODEL' =>2,
     //show page trace
     'SHOW_PAGE_TRACE'  =>true,
     //地址大小敏感设置

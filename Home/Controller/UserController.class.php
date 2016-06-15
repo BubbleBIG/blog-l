@@ -59,8 +59,9 @@ class UserController extends Controller {
     }
 
     //user sign up
-    public function register () {
-        $this->display();
+    public function count () {
+        $blog = M('blog');
+        $ht = $blog -> where("tag= 'HTML/CSS'") -> count();
     }
     public function other () {
         $this->display();
