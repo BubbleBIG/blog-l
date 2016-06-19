@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>HouDun许愿墙</title>
+	<title>许愿墙</title>
 	<link rel="stylesheet" href="<?php echo (CSS_URL); ?>index.css" />
 	<script type="text/javascript" src='<?php echo (JS_URL); ?>jquery-1.7.2.min.js'></script>
 	<script type="text/javascript" src='<?php echo (JS_URL); ?>index.js'></script>
@@ -20,21 +20,9 @@
 			<dd class='content'><?php echo ($v["content"]); ?></dd>
 			<dd class='bottom'>
 				<span class='time'><?php echo (date('Y-m-d H:i',$v["time"])); ?></span>
-				<a href="" class='close'></a>
+				<a href="#" class='close'></a>
 			</dd>
 		</dl><?php endforeach; endif; ?>
-		<!-- <dl class='paper a1'>
-			<dt>
-				<span class='username'>XXX</span>
-				<span class='num'>No.00001</span>
-			</dt>
-			<dd class='content'>大家今天要好好把后台布局完成大家今天要好好把后台布局完成大家今天要好好把后台布局完成</dd>
-			<dd class='bottom'>
-				<span class='time'>今天08:30</span>
-				<a href="" class='close'></a>
-			</dd>
-		</dl> -->
-
 	</div>
 
 	<div id='send-form'>

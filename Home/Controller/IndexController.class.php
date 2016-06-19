@@ -4,8 +4,12 @@ use Think\Controller;
 class IndexController extends Controller {
 
     public function index () {
-           $blog = M('blog');
+        $blog = M('blog');
         $this->assign('blog',$blog->order("id desc")->select());
+        $ht = $blog  ->where(1)-> count();
+        $this->assign('count',$ht);
+        $wish = M('wish');
+        $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
     }
    //摘要视图
@@ -23,9 +27,16 @@ class IndexController extends Controller {
     }
     public function count () {
         $blog = M('blog');
-        $ht = $blog -> where("tag= 'HTML/CSS'") -> count();
+        $tag = $_GET['tag'];
+        $this->assign('tag',$blog->where(array('tag'=>$tag))->select());
+        // $ht = $blog -> where("tag= 'NoTag'") -> count();
+        // $this->assign('count',$ht);
+        $this->display();
+        print_r($ht);
     }
-    public function other () {
+    public function message () {
+        $wish = M('wish');
+        $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
     }
 

@@ -23,8 +23,8 @@
 <p/>
 <p>
 <label for="code" class="label">验证码:</label>
-<input id="code" name="code" type="text" class="input" /><!-- <img class="code" src="/blog/index.php/Admin/Manager/code" /> -->
-<img src="/blog/index.php/Admin/Manager/Verify" alt="点击刷新" height="30" align="bottom" class="code" style="cursor:pointer;"  onclick="javascript:this.src='/blog/index.php/Admin/Manager/Verify?d='+Math.random();" />
+<input id="code" name="code" type="text" class="input" /><!-- <img class="code" src="/blog/Admin/Manager/code" /> -->
+<img src="/blog/Admin/Manager/Verify" alt="点击刷新" height="30" align="bottom" class="code" style="cursor:pointer;"  onclick="javascript:this.src='/blog/Admin/Manager/Verify?d='+Math.random();" />
 <p/>
 </div>
 

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}index.css">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/colors.css">
+    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/code_view.css">
+    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/froala_editor.css">
+    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/themes/gray.css">
+    <script src="{$Think.const.JS_URL}jquery.min.js"></script>
+    <script src="{$Think.const.JS_URL}bootstrap.min.js"></script>
+    <style>
+        .main {
+            width: 64%;
+            /*height: 1200px;*/
+            margin-left: 18%;
+            background: #ffe;
+            padding: 1%;
+        }
+        .menu {
+            margin-right: 8%;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container header">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="" alt="">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+</div>
+<div class="menu" >
+    <div class="contents-btn" align="right">
+        <ul  class="con" >
+
+            <li  >
+                <div class="btn-default bt">
+                <a href="{:U('index')}" type="submit" class="btn " >摘要列表</a>
+                </div>
+            </li>
+            <li>
+                <div class="btn-default bt">
+                <a href="{:U('Contents')}" type="submit" class="btn " >标题列表</a>
+                </div>
+            </li>
+            <li>
+                <div class="btn-default bt">
+                <a href="#" type="submit" class="btn " >留&nbsp;&nbsp;言&nbsp;&nbsp;板</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main" id="">
+    <div id='main'>
+    <div>留言板</div>
+    <hr>
+    <div>
+
+        <legend>主人寄语</legend>
+        <div style="height: 80px;"><p>欢迎留言</p></div>
+        <div class="collapse" id="collapseExample">
+        <div class="well">
+        <form name="form" method=""  name="admin" onSubmit="return InputCheck(this)">
+        <label>发表你的留言</label>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" autofocus="autofocus" placeholder="请输入用户名">
+          </div>
+          <div class="form-group">
+            <textarea id="edit" name="edit" class="form-control"></textarea>
+          </div>
+          <input class="btn btn-primary" type="submit" value="发布"></input>
+        </form>
+        </div>
+        </div>
+        <div style="font-size:16px"><b>留言(<i align="" id="chan"></i>)</b></div>
+        <hr style="margin-top: -1px">
+
+    </div><table id="list">
+        <foreach name='wish' item='v'>
+
+        <tr>
+        <div>&nbsp;<img src="{$Think.const.IMG_URL}person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
+        </tr>
+        <tr>
+        <div class="tex"><p style="margin-left: 28px;">{$v.content}</p></div>
+        </tr>
+        <tr>
+        <div class="time"><m>{$v.time|date='Y-m-d H:i',###}</m></div>
+        </tr>
+        <tr></tr>
+        <hr>
+        </foreach></table>
+    </div>
+
+        <div class="left"></div>
+        <button id="add" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            add
+        </button>
+        <div align="center" id="changpage"></div>
+</div>
+<div class="footer">..</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script> -->
+
+<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/froala_editor.min.js" ></script>
+<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/colors.min.js"></script>
+<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_size.min.js"></script>
+<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_view.min.js"></script>
+<!-- <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_beautifier.min.js"></script> -->
+<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_family.min.js"></script>
+<script src="{$Think.const.JS_URL}page.js"></script>
+<script>
+    $(function(){
+      $('#edit').froalaEditor({
+        theme: 'gray',
+        heightMin: 120,
+        heightMax: 120,
+      })
+    });
+    function InputCheck(WellForm)
+    {
+        if (WellForm.name.value == "")
+        {
+            alert("请输入用户名!");
+            WellForm.name.focus();
+            return (false);
+        }
+        if (WellForm.edit.value == "")
+        {
+            alert("内容不能为空!");
+            WellForm.edit.focus();
+            return (false);
+        }
+        if (LoginForm.code.value == "")
+        {
+            alert("请输入验证码!");
+            LoginForm.code.focus();
+            return (false);
+        }
+    }
+  </script>
+</body>
+
+</html>

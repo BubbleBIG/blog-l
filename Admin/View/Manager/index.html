@@ -152,7 +152,7 @@
 
     <form action="{:U('addblog')}" method="post" name="addblog" onSubmit="return InputCheck(this)">
     <div class="tit">
-    <input class="title form-control" name="title" id="title" type="text" placeholder="Type title"></input>
+    <input class="title form-control" name="title" id="title" type="text" placeholder="Type title" autofocus="autofocus"></input>
     </div>
     <div class="text">
       <textarea id='edit' class="edit" name="edit" style="margin-top: 10px;" placeholder="Type some text,write down somthing you just want to record">
@@ -169,7 +169,7 @@
           <option name="0" value="NoTag">--未分类--</option>
           <option name='1' value="JavaScript">JavaScript</option>
           <option name='2' value="PHP">PHP</option>
-          <option name='3' value="HTML/CSS">HTML/CSS</option>
+          <option name='3' value="HTML_CSS">HTML/CSS</option>
           <option name='4' value="Essay">随笔</option>
           <option name='5' value="Other">其他</option>
         </select>

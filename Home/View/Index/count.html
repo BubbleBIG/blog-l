@@ -1,16 +1,16 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>index.css">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}index.css">
 
-    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>bootstrap.min.css">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
 
-    <script src="<?php echo (JS_URL); ?>jquery.min.js"></script>
+    <script src="{$Think.const.JS_URL}jquery.min.js"></script>
 
-    <script src="<?php echo (JS_URL); ?>bootstrap.min.js"></script>
+    <script src="{$Think.const.JS_URL}bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container header">
@@ -61,18 +61,18 @@
         <ul  class="con" >
 
             <li  >
-                <div class="btn btn-default ">
-                <a href="<?php echo U('index');?>">摘要列表</a>
+                <div class="btn-default bt">
+                <a href="{:U('index')}" type="submit" class="btn " >摘要列表</a>
                 </div>
             </li>
             <li>
-                <div class="btn btn-default">
-                <a href="<?php echo U('Contents');?>">标题列表</a>
+                <div class="btn-default bt">
+                <a href="{:U('Contents')}" type="submit" class="btn " >标题列表</a>
                 </div>
             </li>
             <li>
-                <div class="btn btn-default">
-                <a href="#">留言板</a>
+                <div class="btn-default bt">
+                <a href="{:U('message')}" type="submit" class="btn " >留&nbsp;&nbsp;言&nbsp;&nbsp;板</a>
                 </div>
             </li>
         </ul>
@@ -80,13 +80,11 @@
 </div>
 <div class="pull-left" id="cont">
     <div id='main'>
-        <?php if(is_array($id)): foreach($id as $key=>$v): ?><div align="center" class='title' style="font-size: 21px;"><?php echo ($v["title"]); ?></div>
+        <foreach name='tag' item='v'>
 
-                <div class='summary' style="font-size: 14px;"><p><?php echo ($v["content"]); ?></p></div>
-<!--
-
-                <div align="right" class="more" style="font-size: 14px;"><a href="#<?php echo U('/' .$v['id']);?> ">阅读全文</a></div> -->
-                <div align="right" class='time'><?php echo ($v["createtime"]); ?></div><br><?php endforeach; endif; ?>
+                <div align="" class='title' style="font-size: 22px;color:;"><a id="" href="{:U('read',array('id'=>$v['id']))}">{$v.title}</a></div>
+                <div align="right" class='time' style="font-size: 12px; color: gray;">标签：{$v.tag}&nbsp;&nbsp;&nbsp;&nbsp;发布于：{$v.createtime}</div>
+        </foreach>
     </div>
 
         <div class="left"></div>
@@ -111,7 +109,7 @@
                     <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="14"/>
                 </td>
                 <td>
-                    <input type="image" width="21" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="<?php echo (IMG_URL); ?>search.png" border="0" hspace="2"/>
+                    <input type="image" width="21" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="{$Think.const.IMG_URL}search.png" border="0" hspace="2"/>
                 </td>
             </tr>
         </table>
