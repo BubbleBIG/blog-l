@@ -1,7 +1,7 @@
 var obj,j;
 var page=0;
 var nowPage=0;//当前页
-var listNum=40;//每页显示<ul>数
+var listNum=36;//每页显示<ul>数
 var PagesLen;//总页数
 var PageNum=4;//分页链接接数(5个)
 onload=function(){

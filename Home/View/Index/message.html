@@ -110,7 +110,7 @@
             <input type="text" class="form-control" id="name" name="name" autofocus="autofocus" placeholder="请输入用户名">
           </div>
           <div class="form-group">
-            <textarea id="edit" name="edit" class="form-control"></textarea>
+            <textarea id="edit" name="edit" class="form-control" ></textarea>
           </div>
           <input class="btn btn-primary" type="submit" value="发布"></input>
         </form>
@@ -119,27 +119,29 @@
         <div style="font-size:16px"><b>留言(<i align="" id="chan"></i>)</b></div>
         <hr style="margin-top: -1px">
 
-    </div><table id="list">
+    </div>
+    <table id="list">
         <foreach name='wish' item='v'>
+        <tr><td>
+        <div>&nbsp;<img src="{$Think.const.IMG_URL}person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div></td>
+        </tr>
+        <tr><td>
+        <div class="tex"><p style="margin-left: 28px;">{$v.content}</p></div></td>
+        </tr>
+        <tr><td>
+        <div class="time"><m>{$v.time|date='Y-m-d H:i',###}</m></div></td>
+        </tr>
+        <tr><td></td></tr>
 
-        <tr>
-        <div>&nbsp;<img src="{$Think.const.IMG_URL}person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
-        </tr>
-        <tr>
-        <div class="tex"><p style="margin-left: 28px;">{$v.content}</p></div>
-        </tr>
-        <tr>
-        <div class="time"><m>{$v.time|date='Y-m-d H:i',###}</m></div>
-        </tr>
-        <tr></tr>
+        </foreach>
+        </table>
         <hr>
-        </foreach></table>
     </div>
 
         <div class="left"></div>
-        <button id="add" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button id="add" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: -12px">
             add
-        </button>
+        </button><hr style="margin-top: -1px">
         <div align="center" id="changpage"></div>
 </div>
 <div class="footer">..</div>

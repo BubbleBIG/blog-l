@@ -63,8 +63,7 @@
         <ul  class="con" >
 
             <li  >
-                <!-- <button  id="Contents" class="btn btn-default" type="button" value="Contents"> -->
-                <div class="btn-default bt">
+                 <div class="btn-default bt">
                 <a href="#" type="submit" class="btn " >摘要列表</a>
                 </div>
             </li>
@@ -81,19 +80,6 @@
         </ul>
     </div>
 </div>
-<!-- <div class="menu nav nav-pills" >
-  <div class="na" align="right">
-
-    <ul class="nav nav-pills nav-stacked" >
-
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">摘要列表</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">标题列表</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-
-  </ul>
-  </div>
- </div> -->
-
 <div class="pull-left" >
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
@@ -101,7 +87,7 @@
     <foreach name='blog' item='v'>
         <tr>
             <td >
-            <div id="id" align="center" class='title' style="font-size: 22px;"><a id="" href="{:U('read',array('id'=>$v['id']))}">{$v.title}</a>
+            <div id="id" align="center" class='title' style="font-size: 23px;"><a id="" href="{:U('read',array('id'=>$v['id']))}">{$v.title}</a>
             </div>
             </td>
         </tr>
@@ -165,7 +151,8 @@
         <div class="">
         <table class="" name="">
         <foreach name='blog' item='v'>
-        <tr><td><a id="" href="{:U('count',array('tag'=>$v['tag']))}">{$v.tag}</a>({$count})</td></tr>
+        <!-- <tr><td><a id="" href="{:U('count',array('tag'=>$v['tag']))}">{$v.tag}</a>({$count})</td></tr> -->
+        <tr><td><a id="" href="{:U('count',array('tag'=>$v['tag']))}">{$v.tag}</a></td></tr>
         <!-- <tr><td><a id="" href="{:U('count',array('tag'=>'NoTag'))}">NoTag</a></td></tr> -->
         <!-- <tr><td><a id="" href="{:U('count',array('tag'=>'HTML/CSS'))}">HTML/CSS()({$count})</a></td></tr> -->
         <!-- <tr><td><a id="" href="{:U('count',array('tag'=>'Other'))}">Other()</a></td></tr> -->

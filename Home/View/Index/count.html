@@ -123,14 +123,17 @@
     <div class="message">
     <div class="he" align="center"><label class="lab">message</label></div>
         <div id="message" class="mess">
-            <div class="">&nbsp;&nbsp;最新留言：</div>
-
+            <div class="lab">&nbsp;&nbsp;<b>最新留言：</b></div>
+        <foreach name='wish' item='v'>
+        <div>&nbsp;<img src="{$Think.const.IMG_URL}person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
+        <div class="text"><p style="">{$v.content}</p></div>
+        <div class="time"><m>{$v.time|date='Y-m-d H:i',###}</m></div>
+        </foreach>
             <div id="mes"></div>
-
         </div>
-        <div id="mess-view" class=""></div>
+        <!-- <div id="mess-view" class=""></div> -->
         <div id="mess-add" >
-            <button type="submit" class="btn btn-default" >View all Or Add message</button>
+            <a href="{:U('message')}" type="submit" class="btn btn-default" >MORE</a>
         </div>
     </div>
     <div class="other">
