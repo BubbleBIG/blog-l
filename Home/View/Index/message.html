@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
-    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/colors.css">
-    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/code_view.css">
     <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/froala_editor.css">
+  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/froala_style.css">
+  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/code_view.css">
+  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/colors.css">
+  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/line_breaker.css">
     <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/themes/gray.css">
     <script src="{$Think.const.JS_URL}jquery.min.js"></script>
     <script src="{$Think.const.JS_URL}bootstrap.min.js"></script>
@@ -101,10 +103,14 @@
     <div>
 
         <legend>主人寄语</legend>
-        <div style="height: 80px;"><p>欢迎留言</p></div>
+        <div style="height: 90px;"><blockquote><span style="color: rgb(26, 188, 156); font-size: 14px;">欢迎留言</span>
+    <p><span style="color: rgb(250, 197, 28); font-size: 12px;">---</span><span style="color: rgb(147, 101, 184); font-size: 18px;">还有不少小问题，比如提交验证码输错后导致发布不成功而需要重新按&ldquo;添加留言按钮&rdquo;打开编辑器</span>
+    </p>
+</blockquote>
+</div>
         <div class="collapse" id="collapseExample">
         <div class="well">
-        <form name="form" method=""  name="admin" onSubmit="return InputCheck(this)">
+        <form name="form" method="post" action="{:U('addmessage')}" name="admin" onSubmit="return InputCheck(this)">
         <label>发表你的留言</label>
           <div class="form-group">
             <input type="text" class="form-control" id="name" name="name" autofocus="autofocus" placeholder="请输入用户名">
@@ -112,11 +118,14 @@
           <div class="form-group">
             <textarea id="edit" name="edit" class="form-control" ></textarea>
           </div>
-          <input class="btn btn-primary" type="submit" value="发布"></input>
+          <input class="btn " type="submit" value="发布" style="color: #fff;">
+          <input id="code" name="code" type="text" class="input" placeholder="输入验证码" style="height: 32px; width: 14%;font-size: 16px;margin-left: 2%; padding-left: 1px;" /><!-- <img class="code" src="__CONTROLLER__/code" /> -->
+          <img src="__CONTROLLER__/Verify" alt="点击刷新" height="35" align="bottom" class="code" style="cursor:pointer;"  onclick="javascript:this.src='__CONTROLLER__/Verify?d='+Math.random();" />(看不清点图片刷新)
         </form>
         </div>
         </div>
         <div style="font-size:16px"><b>留言(<i align="" id="chan"></i>)</b></div>
+
         <hr style="margin-top: -1px">
 
     </div>
@@ -126,7 +135,7 @@
         <div>&nbsp;<img src="{$Think.const.IMG_URL}person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div></td>
         </tr>
         <tr><td>
-        <div class="tex"><p style="margin-left: 28px;">{$v.content}</p></div></td>
+        <div class="tex"><p style="">{$v.content}</p></div></td>
         </tr>
         <tr><td>
         <div class="time"><m>{$v.time|date='Y-m-d H:i',###}</m></div></td>
@@ -139,8 +148,8 @@
     </div>
 
         <div class="left"></div>
-        <button id="add" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: -12px">
-            add
+        <button id="add" class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: -12px">
+            添加留言
         </button><hr style="margin-top: -1px">
         <div align="center" id="changpage"></div>
 </div>
@@ -148,12 +157,25 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
   <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script> -->
 
-<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/froala_editor.min.js" ></script>
-<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/colors.min.js"></script>
-<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_size.min.js"></script>
-<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_view.min.js"></script>
-<!-- <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_beautifier.min.js"></script> -->
-<script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_family.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/froala_editor.min.js" ></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/align.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_beautifier.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_view.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/colors.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/draggable.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_size.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_family.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/line_breaker.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/lists.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/paragraph_style.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/entities.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/char_counter.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/inline_style.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/save.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/quote.min.js"></script>
+  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/languages/ro.js"></script>
 <script src="{$Think.const.JS_URL}page.js"></script>
 <script>
     $(function(){

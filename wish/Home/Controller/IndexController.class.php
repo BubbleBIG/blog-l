@@ -25,8 +25,5 @@ class IndexController extends Controller {
            } else {
             $this->error('失败');
            }
-
-
-
     }
 }
