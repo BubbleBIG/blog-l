@@ -29,9 +29,14 @@ class ManagerController extends Controller {
     // //     // $b = $blog->where(1)->select();
     // //     // htmlspecialchars_decode($b);
     //     $this->assign('tab',$tab->select());
-        $this->assign('listblog',$blog->select());
+        $id = (int)$_GET['id'];
+        $this->assign('changeb',$blog->where(array('id'=>$id))->select());
+        $this->assign('listblog',$blog->order("id desc")->select());
         $this->display();
 //        var_dump(get_defined_constants(true));
+
+    }
+    function changblog() {
 
     }
     function Verify() {

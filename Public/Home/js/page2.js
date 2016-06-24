@@ -1,11 +1,11 @@
 var obj,j;
 var page=0;
 var nowPage=0;//当前页
-var listNum=13;//每页显示<ul>数
+var listNum=18;//每页显示<ul>数
 var PagesLen;//总页数
 var PageNum=4;//分页链接接数(5个)
 onload=function(){
-obj=document.getElementById("list").getElementsByTagName("tr");
+obj=document.getElementById("list").getElementsByTagName("div");
 j=obj.length
 PagesLen=Math.ceil(j/listNum);
 upPage(0)
@@ -19,7 +19,7 @@ obj[i].style.display="none"
 for (var i=p*listNum;i<(p+1)*listNum;i++){
 if(obj[i])obj[i].style.display="block"
 }
-strS='<a href="###" onclick="upPage(0)">首页</a>  '
+strS='<a href="#" onclick="upPage(0)">首页</a>  '
 var PageNum_2=PageNum%2==0?Math.ceil(PageNum/2)+1:Math.ceil(PageNum/2)
 var PageNum_3=PageNum%2==0?Math.ceil(PageNum/2):Math.ceil(PageNum/2)+1
 var strC="",startPage,endPage;
@@ -31,6 +31,9 @@ for (var i=startPage;i<=endPage;i++){
  else strC+='<a href="#" onclick="upPage('+i+')">'+(i+1)+'</a> '
 }
 strE=' <a href="#" onclick="upPage('+(PagesLen-1)+')">尾页</a>  '
-strE2=nowPage+1+"/"+PagesLen+"页"+"  共"+(j-1)+"条"
-document.getElementById("changpage").innerHTML=strS+strC+strE+strE2
+strE2=nowPage+1+"/"+PagesLen+"页"+"  共"+(j/3)+"条"
+strE3=""+(j/3)+""
+document.getElementById("changpage").innerHTML=strS+strC+strE+strE2;
+// document.getElementById("changpage1").innerHTML=strS+strC+strE+strE2;
+document.getElementById("chan").innerHTML=strE3;
 }
