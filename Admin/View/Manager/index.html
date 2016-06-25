@@ -213,6 +213,7 @@
               [<a href="{:U('del',array('id'=>$v['id']))}">删除</a>]
             </td>
             </tr>
+            <tr></tr><tr></tr>
             </foreach>
           </table>
           <div id="changpage"></div>
@@ -233,6 +234,13 @@
 $(function () {
         $('#edit1').froalaEditor({
             heightMin: 500,
+//            heightMax: 800,
+            theme: 'royal'
+        });
+    });
+$(function () {
+        $('#edit2').froalaEditor({
+            heightMin: 180,
 //            heightMax: 800,
             theme: 'royal'
         });
@@ -284,10 +292,62 @@ $(function () {
   </div>
   </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="MessageManage">.5..</div>
+    <div role="tabpanel" class="tab-pane" id="MessageManage" style="width: 74%;margin-left: 13%;background: #fff;margin: " align="left">
+    <div style="margin: 1%">
+        <div class="main" id="">
+
+    <table id="list">
+        <foreach name='wish' item='v'>
+        <tr>
+        <div><hr>&nbsp;<img src="{$Think.const.IMG_URL}person.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
+        </tr>
+        <tr>
+        <div class="" style="margin-left: 52px"><m>{$v.content}</m></div>
+        </tr>
+        <tr>
+        <div class="time"><m style="font-size: 12px;margin-left: 52px">{$v.time|date='Y-m-d H:i',###}&nbsp;&nbsp;[<a id="add{$v.id}" class="rep"  type="submit" href="###">回复</a>]&nbsp;&nbsp;[<a href="###">删除</a>]</m>
+        <hr style="margin-left: 52px;margin-top: -1px;">
+
+        </div>
+        </tr>
+        <div id="aaa{$v.id}" style="margin-left: 52px;width: 50%">
+        <div class="">
+        <form name="form" method="post" action="{:U('addmessage')}" name="admin" onSubmit="return InputCheck(this)">
+          <div class="form-group">
+            <input type="text" class="form-control" id="name rname" name="name" value="{$v.id}" onMouseOver="this.className='input'" disabled="true"　readOnly="true">
+          </div>
+          <div class="form-group">
+            <textarea rows="3" id="edi" name="edi" class="form-control"></textarea>
+          </div>
+          <!-- <input class="" type="submit" value="发布" style="color: "/> -->
+          <a class="btn" type="submit">发布</a>
+
+        </form>
+        </div>
+        </div>
+        <script>
+          $(document).ready(function() {
+    $('#aaa{$v.id}').hide();
+    $('#add{$v.id}').click(function() {
+        $('#aaa{$v.id}').toggle();
+        $('textarea').focus();
+    });
+
+});
+        </script>
+        </foreach>
+        </table>
+        <hr>
+    </div>
+  </div>
+</div>
+
     <div role="tabpanel" class="tab-pane" id="UserInfo">..6.</div>
 </div>
 </div>
+<script>
+  f
+</script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>

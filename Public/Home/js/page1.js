@@ -1,7 +1,7 @@
 var obj,j;
 var page=0;
 var nowPage=0;//当前页
-var listNum=13;//每页显示<ul>数
+var listNum=30;//每页显示<ul>数
 var PagesLen;//总页数
 var PageNum=4;//分页链接接数(5个)
 onload=function(){
@@ -31,6 +31,10 @@ for (var i=startPage;i<=endPage;i++){
  else strC+='<a href="#" onclick="upPage('+i+')">'+(i+1)+'</a> '
 }
 strE=' <a href="#" onclick="upPage('+(PagesLen-1)+')">尾页</a>  '
-strE2=nowPage+1+"/"+PagesLen+"页"+"  共"+(j-1)+"条"
+strE2=nowPage+1+"/"+PagesLen+"页"+"  共"+((j-1)/3)+"条"
+// strE3=""+(j-3)+""
+// strE4=nowPage+1+"/"+PagesLen+"页"+"  共"+(j-3)+"条"
 document.getElementById("changpage").innerHTML=strS+strC+strE+strE2
+document.getElementById("changpage1").innerHTML=strS+strC+strE
+// document.getElementById("chan").innerHTML=strE3;
 }
