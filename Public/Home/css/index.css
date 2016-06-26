@@ -89,6 +89,7 @@ body {
     height: 25px;
     background: #56ffdd;
 }
+
 .info {
      width: 95%;
      height: 250px;
@@ -156,6 +157,20 @@ body {
     background: #ffe;
     margin: 2%;
 }
+.tag-view .listtag {
+    margin-top: 2%;
+    margin-left: 5%;
+}
+table a:hover {
+    text-decoration: none;
+}
+/*.tag-view ul li {
+    list-style:none;
+    display: ;
+}
+.tag-view ul li a:hover {
+    text-decoration: none;
+}*/
 .message {
     width: 95%;
     height: 310px;

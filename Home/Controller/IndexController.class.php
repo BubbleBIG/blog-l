@@ -4,12 +4,20 @@ use Think\Controller;
 class IndexController extends Controller {
 
     public function index () {
-        // $blog = M('blog');
+
         $blog = M('blog_tag');
+        // $blo_tag = M('blo_tag');
+        $tag = M('tag');
+        $this->assign('tag',$tag->order("tid desc")->select());
         $this->assign('blog',$blog->order("bid desc")->select());
-        // $this->assign('blog',$blog->order("bid desc")->select());
-        $ht = $blog  ->where(1)-> count();
-        $this->assign('count',$ht);
+        // $ht1 = $blog ->where('tid=1')-> count();
+        // $ht2 = $blog ->where('tid=2')-> count();
+        // $ht3 = $blog ->where('tid=3')-> count();
+        // $ht4 = $blog ->where('tid=4')-> count();
+        // $this->assign('count1',$ht1);
+        // $this->assign('count2',$ht2);
+        // $this->assign('count3',$ht3);
+        // $this->assign('count4',$ht4);
         $wish = M('wish');
         $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
@@ -18,9 +26,8 @@ class IndexController extends Controller {
     public function Contents() {
         $blog = M('blog_tag');
         $this->assign('blog',$blog->order("bid desc")->select());
-        // $blog = M('blog');
-
-        // $this->assign('blog',$blog->order("bid desc")->select());
+        $tag = M('tag');
+        $this->assign('tag',$tag->order("tid desc")->select());
         $wish = M('wish');
         $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
@@ -28,8 +35,10 @@ class IndexController extends Controller {
     function read() {
         $blog = M('blog_tag');
         // $this->assign('blog',$blog->order("bid desc")->select());
-        $id = (int)$_GET['bid'];
-        $this->assign('id',$blog->where(array('id'=>$id))->select());
+        $id = (int)$_GET['id'];
+        $this->assign('id',$blog->where(array('bid'=>$id))->select());
+        $tag = M('tag');
+        $this->assign('tag',$tag->order("tid desc")->select());
         $wish = M('wish');
         $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
@@ -37,12 +46,12 @@ class IndexController extends Controller {
     }
     public function count () {
         $blog = M('blog_tag');
-        $tag = $_GET['tag'];
-        $this->assign('tag',$blog->where(array('tag'=>$tag))->order("bid desc")->select());
+        $taglist = $_GET['tag'];
+        $this->assign('taglist',$blog->where(array('tid'=>$taglist))->order("bid desc")->select());
         $wish = M('wish');
         $this->assign('wish',$wish->order("id desc")->select());
-        // $ht = $blog -> where("tag= 'NoTag'") -> count();
-        // $this->assign('count',$ht);
+        $tag = M('tag');
+        $this->assign('tag',$tag->order("tid desc")->select());
         $this->display();
         // print_r($ht);
     }

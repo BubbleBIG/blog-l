@@ -29,8 +29,6 @@
   <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/file.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
   <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/themes/royal.css">
-
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   <!-- Optional theme -->
@@ -169,17 +167,11 @@
 
       <div class="se">
         <button type="submit" class="btn btn-default" name="btn">确认发表</button>
-
-
         <select name="tag" id = "tag" class="tag form-control pull-left">
-          <option name="0" value="NoTag">--未分类--</option>
-          <option name='1' value="JavaScript">JavaScript</option>
-          <option name='2' value="PHP">PHP</option>
-          <option name='3' value="HTML_CSS">HTML/CSS</option>
-          <option name='4' value="Essay">随笔</option>
-          <option name='5' value="Other">其他</option>
+        <foreach name="tag" item="v">
+          <option name="{$v.tid}" value="{$v.tid}">{$v.tag}</option>
+        </foreach>
         </select>
-
       </div>
     </form>
     </fieldset>
@@ -192,28 +184,26 @@
         <div class="table-list">
 
         <table class="table table-list table-striped table-bordered" id="list">
-            <tr> <!-- <foreach> -->
+            <tr>
 
             <th width="98px" align="left">ID</th>
             <th width="293px" align="left">标题</th>
             <th width="147px" align="left">分类</th>
             <th width="176px" align="left">发布时间</th>
             <th width="146px" align="left">操作</th>
-            <!-- </foreach> -->
             </tr>
 
           <foreach name='listblog' item='v'>
             <tr>
-            <td width="10%" align="left">{$v.id}</td>
+            <td width="10%" align="left">{$v.bid}</td>
             <td width="30%" align="left">{$v.title}</td>
             <td width="15%" align="left">{$v.tag}</td>
             <td width="18%" align="left" >{$v.createtime}</td>
             <td width="15%" align="left">
-              [<a type="submit" class="" href="{:U('index',array('id'=>$v['id']))}">修改</a>]
-              [<a href="{:U('del',array('id'=>$v['id']))}">删除</a>]
+              [<a type="submit" class="" href="{:U('index',array('id'=>$v['bid']))}">修改</a>]
+              [<a href="{:U('del',array('id'=>$v['bid']))}">删除</a>]
             </td>
             </tr>
-            <tr></tr><tr></tr>
             </foreach>
           </table>
           <div id="changpage"></div>
@@ -267,22 +257,21 @@ $(function () {
     <foreach name='changeb' item='v'>
     <div class="tit">
     <input style="width: 100%" class="title form-control" name="title" id="title" type="text" autofocus="autofocus" value="{$v.title}"></input>
+
     </div>
         <textarea id='edit1' class="edit1" name="edit1" style="margin-top: 8px;">
            {$v.content}
         </textarea>
         </foreach>
         <div class="se">
-        <button type="submit" class="btn btn-default" name="btn">确认修改</button>
-
-
+        <button type="" class="btn btn-default" name="btn">确认</button>
+        <input  type="radio" name="id1" value="{$v.bid}" checked>
+        <!-- <input class="id1" name="id1" id="id1" value="{$v.bid}" style="width: 4%; height: 34px; font-size: 12px;" onMouseOver="this.className='input'" disabled="true"　readOnly="true" /> -->
         <select name="tag" id = "tag" class="tag form-control pull-left">
-        <option name='0' value="{$v.tag}">{$v.tag}</option>
-          <option name='1' value="JavaScript">JavaScript</option>
-          <option name='2' value="PHP">PHP</option>
-          <option name='3' value="HTML_CSS">HTML/CSS</option>
-          <option name='4' value="Essay">Essay</option>
-          <option name='5' value="Other">Other</option>
+        <foreach name="tag" item="v">
+          <option name="{$v.tid}" value="{$v.tid}">{$v.tag}</option>
+
+          </foreach>
         </select>
 
       </div>
@@ -387,9 +376,9 @@ $(function(){
   $(this).tab('show')
 })
    });
-$(document).ready(function() {
-    // $('#Manageblog').load("{:U('blog')}");
-});
+// $(document).ready(function() {
+//     // $('#Manageblog').load("{:U('blog')}");
+// });
 
 </script>
 </body>

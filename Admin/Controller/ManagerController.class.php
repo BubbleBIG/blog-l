@@ -22,24 +22,72 @@ class ManagerController extends Controller {
     //主页面
  function index() {
 
-        $blog = D('blog');
-    //     $tab = D('tab');
-    // //     // $blog = D('blog')->relation(true)->select();
-    // //     // print_r($blog);
-    // //     // $b = $blog->where(1)->select();
-    // //     // htmlspecialchars_decode($b);
-    //     $this->assign('tab',$tab->select());
+        $blog = M('blog_tag');
+        $listb = M('blog');
+        $tag = M('tag');
+        $this->assign('tag',$tag->select());
+        $this->assign('listblog',$listb->order("bid desc")->select());
         $id = (int)$_GET['id'];
-        $this->assign('changeb',$blog->where(array('id'=>$id))->select());
-        $this->assign('listblog',$blog->order("id desc")->select());
+        $this->assign('changeb',$blog->where(array('bid'=>$id))->select());
+        // $this->assign('listblog',$blog->order("id desc")->select());
         $wish = M('wish');
         $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
+
 //        var_dump(get_defined_constants(true));
 
     }
-    function changblog() {
+    //添加blog的上传数据库操作
+    function addblog() {
+        session_start();
+        // if (!IS_POST)  U('index');
+        $blog = M('blog');
+        $tag = M('tag');
+        $id = $blog->max('bid')+1;
+            $data = array(
+                'title' => $_POST['title'],
+                'content' => $_POST['edit'],
+                'createtime' => date('Y-m-d H:i:s'),
+                );
 
+            $itag = array(
+                'tid' => I('tag'),
+                'bid' => $id,
+                );
+            $tid = I('tag');
+            $num = $tag -> where(array('tid'=>$tid))->getField('num')+1;
+            $num1 = array('num' => $num, );
+            print_r($data);
+            print_r($itag);
+            print_r($num);
+           if( M('blog')->data($data)->add()&&M('blo_tag')->data($itag)->add()&&$tag->where(array('tid'=>$tid))->data($num1)->save()) {
+                $this->success('发布成功','index');
+           } else {
+            $this->error('失败');
+           }
+    }
+    function changeblog() {
+        $blog = M('blog');
+       // $id = (int)$_GET['id'];
+             $data = array(
+                'title' => $_POST['title'],
+                'content' => $_POST['edit1'],
+                'bid' => $_POST['id1']   ,
+                'updatetime' => date('Y-m-d H:i:s'),
+                );
+            $itag = array(
+                'tid' => I('tag'),
+
+                );
+            $bid = $_POST['id1'];
+            print_r($data);
+            print_r($itag);
+            print_r($bid);
+           if( M('blog')->data($data)->save()&&M('blo_tag')->where(array('bid'=>$bid))->data($itag)->save()) {
+                $this->success('修改成功','index');
+           } else {
+            $this->error('失败');
+           }
     }
     function Verify() {
         $config = array(
@@ -54,8 +102,6 @@ class ManagerController extends Controller {
     }
     //登陆判断
   function handle() {
-
-
         // echo $_SESSION['verify'];
         // print_r(I('post.'));
         // echo I('username');
@@ -85,12 +131,6 @@ class ManagerController extends Controller {
             $data['logintime'] = Date('Y-m-d H:i:s');
             $data['loginip'] = get_client_ip();
             $login = $log->where('id=1')->setField($data);
-
-// echo $log->getLastSql();
-//             dump($log);
-//             print_r($data);
-            // dump($user);
-            // dump($logi);
             if (!$login) {
                 $this->error('登陆错误');
                 # code...
@@ -113,32 +153,15 @@ class ManagerController extends Controller {
     }
 
     //编辑器页面
-    function blog() {
-        $this->display();
-    }
+    // function blog() {
+    //     $this->display();
+    // }
     //退出登陆
     function logout() {
         session(null);
         $this -> redirect('login');
     }
-    //添加blog的上传数据库操作
-    function addblog() {
-        session_start();
-        // if (!IS_POST)  U('index');
-            $data = array(
-                'title' => $_POST['title'],
-                'content' => $_POST['edit'],
-                'tag' => I('tag'),
-                'createtime' => date('Y-m-d H:i:s'),
 
-                );
-            print_r($data);
-           if( M('blog')->data($data)->add()) {
-                $this->success('发布成功','index');
-           } else {
-            $this->error('失败');
-           }
-    }
     //blog列表
     function listblog() {
         // $blog = M('blog');
@@ -153,7 +176,7 @@ class ManagerController extends Controller {
         // $this -> assign('list',$show);
         // $this -> display();
 
-        $blog = D('blog');
+        $blog = M('blog_tag');
     //     // $blog = D('blog')->relation(true)->select();
     //     // print_r($blog);
     //     // $b = $blog->where(1)->select();
