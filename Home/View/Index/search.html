@@ -95,20 +95,10 @@
        <div class="panel_head"></div>
         <div  class="form">
         <form action="{:U(search)}" name="search">
-       <!-- <div class="row">
-            <div class="col-lg-10">
-            <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-            <input class="btn btn-default" type="submit" value="Go!"></input>
-            </span>
-            </div>
-            </div>
-        </div> -->
         <table border="0" cellpadding="0" cellspacing="0" class="tab_search" align="center">
             <tr>
                 <td>
-                    <input type="text"  title="Search" class="searchinput keywords" id="searchinput keywords" name="keywords" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="14"/>
+                    <input type="text"  title="Search" class="searchinput keywords" id="searchinput keywords" name="keywords" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='&nbsp;';" onfocus="if(this.value=='&nbsp;')value='';" value="&nbsp;" size="14"/>
                 </td>
                 <td>
                     <input type="image" width="" id="search" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="__PUBLIC__/home/img/search.png" border="0" hspace="2"/>
@@ -116,14 +106,6 @@
             </tr>
         </table>
         </form>
-        <!-- <form action="" method="post" class="form-inline" >
-        <div class="form-group input">
-        <input class="form-control" type="text" name="search" placeholder="something">
-        </div>
-        <div class="form-group input">
-        <input type="submit" class="btn btn-default"><span class=""></span></input>
-        </div>
-        </form> -->
         </div>
     </div>
     <script>

@@ -51,6 +51,10 @@ class IndexController extends Controller {
           $this->assign('blog',$blog_tag->where($where)->select());
           // print_r($keywords);
           // print_r($data);
+          $tag = M('tag');
+        $this->assign('tag',$tag->order("tid desc")->select());
+        $wish = M('wish');
+        $this->assign('wish',$wish->order("id desc")->select());
           $this->display();
     }
     public function count () {
