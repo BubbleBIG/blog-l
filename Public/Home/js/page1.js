@@ -35,6 +35,6 @@ strE2=nowPage+1+"/"+PagesLen+"页"+"  共"+(j-1)+"条"
 // strE3=""+(j-3)+""
 // strE4=nowPage+1+"/"+PagesLen+"页"+"  共"+(j-3)+"条"
 document.getElementById("changpage").innerHTML=strS+strC+strE+strE2
-document.getElementById("changpage1").innerHTML=strS+strC+strE
+// document.getElementById("changpage1").innerHTML=strS+strC+strE
 // document.getElementById("chan").innerHTML=strE3;
 }

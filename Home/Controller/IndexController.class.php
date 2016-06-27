@@ -4,7 +4,7 @@ use Think\Controller;
 class IndexController extends Controller {
 
     public function index () {
-
+        // var_dump(get_defined_constants(true));
         $blog = M('blog_tag');
         // $blo_tag = M('blo_tag');
         $tag = M('tag');
@@ -34,7 +34,6 @@ class IndexController extends Controller {
     }
     function read() {
         $blog = M('blog_tag');
-        // $this->assign('blog',$blog->order("bid desc")->select());
         $id = (int)$_GET['id'];
         $this->assign('id',$blog->where(array('bid'=>$id))->select());
         $tag = M('tag');
@@ -43,6 +42,16 @@ class IndexController extends Controller {
         $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
 
+    }
+    function search() {
+        $blog_tag = M('blog_tag');
+        $keywords = "%".$_GET['keywords']."%";  //获取搜索关键字
+          $where['title|content|tag'] = array('like',$keywords);  //用like条件搜索title和content两个字段
+          // $data = $blog_tag->where($where)->select();
+          $this->assign('blog',$blog_tag->where($where)->select());
+          // print_r($keywords);
+          // print_r($data);
+          $this->display();
     }
     public function count () {
         $blog = M('blog_tag');

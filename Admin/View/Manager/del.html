@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <form name=loading>
+　 <p align=center> <font color="#edcdcd" size="6">删除成功正在返回，请稍等</font><font color="#cdcdcd" size="5" face="impact">...</font>
+　 　<input type=text face="impact" name=percent size='1' style="color:#ededed;  border-style:none;font-size: 35pt">
+　　<script>　
+    var bar=0　
+    count()　
+    function count(){　
+    bar=bar+5　
+    document.loading.percent.value=bar+"%"　
+    if (bar<99)　
+    {setTimeout("count()",100);}　
+    else　
+    {window.location = "{:U('index')}";}　
+    }</script>
+　</p>
+</form><p align="center" style="font-size: 14px">
+如果您的浏览器不支持跳转,<a style="text-decoration: none" href="{:U('index')}"><font color="#FF0000"><b>请点这里</b></font></a>.</p>
+</body>
+</html>

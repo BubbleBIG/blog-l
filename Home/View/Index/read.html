@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>MY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}index.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/index.css">
 
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/bootstrap.min.css">
 
-    <script src="{$Think.const.JS_URL}jquery.min.js"></script>
+    <script src="__PUBLIC__/home/js/jquery.min.js"></script>
 
-    <script src="{$Think.const.JS_URL}bootstrap.min.js"></script>
+    <script src="__PUBLIC__/home/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container header">
@@ -19,7 +19,7 @@
     <div class="navbar-header">
     <h2>WelCome</h2>
       <a class="navbar-brand" href="#">
-        <!-- <img alt="Brand" src="{$Think.const.IMG_URL}"> -->
+        <!-- <img alt="Brand" src="__PUBLIC__/home/img/"> -->
       </a>
     </div>
     </div>
@@ -72,17 +72,17 @@
 
     </div>
     <div class="sea" >
-    <div class="he" align="center"><span>Content-Search</span></div>
+    <div class="he" align="center"><span>Search</span></div>
        <div class="panel_head"></div>
         <div  class="form">
-        <form action="#" name="search">
+        <form action="{:U(search)}" name="search">
         <table border="0" cellpadding="0" cellspacing="0" class="tab_search" align="center">
             <tr>
                 <td>
-                    <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="14"/>
+                    <input type="text"  title="Search" class="searchinput keywords" id="searchinput keywords" name="keywords" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- Search Something -';" onfocus="if(this.value=='- Search Something -')value='';" value="- Search Something -" size="14"/>
                 </td>
                 <td>
-                    <input type="image" width="21" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="{$Think.const.IMG_URL}search.png" border="0" hspace="2"/>
+                    <input type="image" width="" id="search" height="17" class="searchaction" onclick="if(document.forms['search'].searchinput.value=='- Search Something -')document.forms['search'].searchinput.value='';" alt="Search" src="__PUBLIC__/home/img/search.png" border="0" hspace="2"/>
                 </td>
             </tr>
         </table>
@@ -108,7 +108,7 @@
             <div class="lab">&nbsp;&nbsp;<b>最新留言：</b></div>
 
         <foreach name='wish' item='v'>
-        <div>&nbsp;<img src="{$Think.const.IMG_URL}person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
+        <div>&nbsp;<img src="__PUBLIC__/home/img/person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
         <div class="text"><p style="">{$v.content}</p></div>
         <div class="time" ><div style="color: gray; font-size: 12px;">{$v.time|date='Y-m-d H:i',###}</div></div>
         </foreach>

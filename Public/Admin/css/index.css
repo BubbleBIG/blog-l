@@ -54,11 +54,12 @@ body {
     margin-right: 10%;
 }
 .blo li {
-    font-size: 17px;
+    font-size: 14px;
 }
 .blo li a {
     /*color: #00aa00;*/
     /*color: #654b8c;*/
+    padding: 5px;
     color: #0096ff;
 }
 .se .btn {

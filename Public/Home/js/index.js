@@ -12,7 +12,7 @@ $(function(){
     //     $('#1').load('/blog/Home/View/User/other.php');
     // })
     $(document).ready(function() {
-        $('.ca').load('./Ca.html');
+        $('.ca').load('/blog/Home/View/Index/Ca.html');
     })
     // $(document).ready(function() {
     //     $('#cont').load('./Contents.html');

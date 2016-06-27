@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <title>MY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}index.css">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/index.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
-    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/froala_editor.css">
-  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/froala_style.css">
-  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/code_view.css">
-  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/colors.css">
-  <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/plugins/line_breaker.css">
-    <link rel="stylesheet" href="/blog/Public/Admin/js/froala/css/themes/gray.css">
-    <script src="{$Think.const.JS_URL}jquery.min.js"></script>
-    <script src="{$Think.const.JS_URL}bootstrap.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/froala_editor.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/froala_style.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/code_view.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/colors.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/line_breaker.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/themes/gray.css">
+    <script src="__PUBLIC__/home/Js/jquery.min.js"></script>
+    <script src="__PUBLIC__/home/Js/bootstrap.min.js"></script>
     <style>
         .main {
-            width: 64%;
+            width: 74%;
             /*height: 1200px;*/
-            margin-left: 18%;
+            margin-left: 13%;
             background: #ffe;
             padding: 1%;
         }
         .menu {
-            margin-right: 8%;
+            /*margin-right: 10%;*/
 
         }
     </style>
@@ -37,14 +37,14 @@
     <div class="navbar-header">
     <h2>WelCome</h2>
       <a class="navbar-brand" href="#">
-        <!-- <img alt="Brand" src="{$Think.const.IMG_URL}"> -->
+        <!-- <img alt="Brand" src="__PUBLIC__/home/img/"> -->
       </a>
     </div>
     </div>
     </nav>
 </div>
 <div class="menu" >
-    <div class="contents-btn" align="right">
+    <div class="contents-btn" align="center" style="margin-right: 0px">
         <ul  class="con" >
 
             <li  >
@@ -101,7 +101,7 @@
     <div id="list">
         <foreach name='wish' item='v'>
 
-        <div><hr>&nbsp;<img src="{$Think.const.IMG_URL}person.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
+        <div><hr>&nbsp;<img src="__PUBLIC__/home/img/person.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
 
         <div class="tex"><p style="">{$v.content}</p></div>
 
@@ -135,24 +135,24 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/froala_editor.min.js" ></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/align.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_beautifier.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/code_view.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/colors.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/draggable.min.js"></script>
-  <!-- <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_size.min.js"></script> -->
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/font_family.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/line_breaker.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/lists.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/paragraph_style.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/entities.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/char_counter.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/inline_style.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/save.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/plugins/quote.min.js"></script>
-  <script type="text/javascript" src="/blog/Public/Admin/js/froala/js/languages/ro.js"></script>
-<script src="{$Think.const.JS_URL}page2.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/froala_editor.min.js" ></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/align.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/code_beautifier.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/code_view.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/colors.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/draggable.min.js"></script>
+  <!-- <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/font_size.min.js"></script> -->
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/font_family.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/line_breaker.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/lists.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/paragraph_style.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/entities.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/char_counter.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/inline_style.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/save.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/quote.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/languages/ro.js"></script>
+<script src="__PUBLIC__/home/Js/page2.js"></script>
 <script>
     $(function(){
       $('#edit').froalaEditor({

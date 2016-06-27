@@ -61,7 +61,7 @@
     <a href="{:U('blog')}" type="submit" class="btn btn-success">博客管理</a>
   </div>
   <div class="btn-group" role="group">
-    <a href="{:U('message')}" type="submit" class="btn btn-success">留言管理</a>
+    <a type="submit" class="btn btn-success">留言管理</a>
   </div>
   <div class="btn-group" role="group">
     <a type="submit" class="btn btn-success">信息中心</a>
@@ -74,180 +74,9 @@
   </div>
 </div>
 
-<div class="body" id="body">
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="Manageblog">
-      <div class="blo">
-  <ul class="nav nav-tabs" role="tablist" >
 
-    <li role="presentation" ><a href="#addblog" aria-controls="addblog" role="tab" data-toggle="tab">添加博客</a></li>
-    <li role="presentation" class="active"><a href="#changeblog" id='ch' aria-controls="changeblog" role="tab" data-toggle="tab">查看操作</a></li>
-    <li role="presentation"><a href="#deleteblog" id="oth" aria-controls="deleteblog" role="tab" data-toggle="tab">标签添加</a></li>
-  </ul>
-
-  <script>
-    function InputCheck(AddbForm)
-{
-    if (AddbForm.title.value == "")
-    {
-        alert("标题不能为空!");
-        AddbForm.title.focus();
-        return (false);
-    }
-    if (AddbForm.edit.value == "")
-    {
-        alert("内容不能为空!");
-        AddbForm.edit.focus();
-        return (false);
-    }
-    if (ChangbForm.edit1.value == "")
-    {
-        alert("内容不能为空!");
-        AddbForm.edit1.focus();
-        return (false);
-    }
-}
-  </script>
-
-  <div class="tab-content">
-
-    <div role="tabpanel" class="tab-pane" id="addblog">
-    <div id="editor" >
-    <div class="addb">
-<fieldset>
-
-    <form action="{:U('addblog')}" method="post" name="addblog" onSubmit="return InputCheck(this)">
-    <div class="tit">
-    <input class="title form-control" name="title" id="title" type="text" placeholder="Type title" autofocus="autofocus"></input>
-    </div>
-    <div class="text">
-      <textarea id='edit' class="edit" name="edit" style="margin-top: 10px;" placeholder="Type some text,write down somthing you just want to record">
-
-      </textarea>
-      </div>
-
-
-      <div class="se">
-        <button type="submit" class="btn btn-default" name="btn">确认发表</button>
-        <select name="tag" id = "tag" class="tag form-control pull-left">
-        <foreach name="tag" item="v">
-          <option name="{$v.tid}" value="{$v.tid}">{$v.tag}</option>
-        </foreach>
-        </select>
-      </div>
-    </form>
-    </fieldset>
-  </div>
-  </div>
-
-  </div>
-    <div role="tabpanel" class="tab-pane active" id="changeblog">
-    <!-- <div id="editor"> -->
-        <div class="table-list">
-
-        <table class="table table-list table-striped table-bordered" id="list">
-            <tr>
-
-            <th width="98px" align="left">ID</th>
-            <th width="293px" align="left">标题</th>
-            <th width="147px" align="left">分类</th>
-            <th width="176px" align="left">发布时间</th>
-            <th width="146px" align="left">操作</th>
-            </tr>
-
-          <foreach name='listblog' item='v'>
-            <tr>
-            <td width="10%" align="left">{$v.bid}</td>
-            <td width="30%" align="left">{$v.title}</td>
-            <td width="15%" align="left">{$v.tag}</td>
-            <td width="18%" align="left" >{$v.createtime}</td>
-            <td width="15%" align="left">
-              [<a type="submit" class="" href="{:U('change',array('id'=>$v['bid']))}">修改</a>]
-              [<a href="{:U('del',array('id'=>$v['bid']))}" onclick="if (confirm('确定删除?')) return true; else return false;">删除</a>]
-            </td>
-            </tr>
-            </foreach>
-          </table>
-          <div id="changpage"></div>
-      </div>
-    </div>
-    <!-- </div> -->
-    <script src="__PUBLIC__/home/js/page1.js"></script>
-    <script>
-      $(function () {
-        $('#edit').froalaEditor({
-            heightMin: 450,
-//            heightMax: 800,
-            theme: 'royal'
-        });
-    });
-    </script>
-    <script>
-$(function () {
-        $('#edit1').froalaEditor({
-            heightMin: 500,
-//            heightMax: 800,
-            theme: 'royal'
-        });
-    });
-$(function () {
-        $('#edit2').froalaEditor({
-            heightMin: 180,
-//            heightMax: 800,
-            theme: 'royal'
-        });
-    });
-    </script>
-    <script>
-      $(function(){
-        $('#edit')
-          .on('froalaEditor.initialized', function (e, editor) {
-            $('#edit').parents('form').on('submit', function () {
-              console.log($('#edit').val());
-              return false;
-            })
-          })
-          .froalaEditor({enter: $.FroalaEditor.ENTER_P, placeholderText: null, })
-
-      });
-
-  </script>
-
-    <div role="tabpanel" class="tab-pane" id="deleteblog" style="">
-    <div role="tabpanel" class="tab-pane" id="Labelclass" align="center">
-    <div style="background: #fff; width: 80%;margin-top: 4%">
-      <div>
-      <label>添加Tag</label>
-        <form class="navbar-form" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Add Tag">
-          </div>
-          <button type="submit" class="btn btn-default">添加</button>
-        </form>
-      </div>
-    <table class="table table-list table-striped table-bordered" style="width: 40%">
-      <tr>
-        <th>标签名</th>
-        <th>数目</th>
-        <!-- <th>操作</th> -->
-      </tr>
-      <foreach name="tag" item="v">
-        <tr>
-          <td>{$v.tag}</td>
-          <td>{$v.num}</td>
-          <!-- <td><a href="###">查看</td> -->
-        </tr>
-      </foreach>
-    </table>
-
-    </div>
-    </div>
-    </div>
-  </div>
-  </div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="MessageManage" style="width: 74%;margin-left: 13%;background: #fff;margin: " align="left">
-    <div style="margin: 1%">
+    <div role="tabpanel" class="tab-pane active" id="MessageManage" style="width: 74%;margin-left: 13%;background: #fff;margin: " align="left">
+    <div style="margin: 6% 1% 0 1%">
         <div class="main" id="">
 
     <table id="list">
@@ -294,10 +123,6 @@ $(function () {
         <hr>
     </div>
   </div>
-</div>
-
-    <div role="tabpanel" class="tab-pane" id="UserInfo">..6.</div>
-</div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
