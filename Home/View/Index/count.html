@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MY Blog</title>
+    <title>LongB-BLOG</title>
+    <link rel="shortcut icon" href="__PUBLIC__/home/img/v3.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="__PUBLIC__/home/css/index.css">
 
@@ -12,6 +13,7 @@
 
     <script src="__PUBLIC__/home/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/home/js/index.js"></script>
+    <script src="__PUBLIC__/home/js/page.js"></script>
 </head>
 <body>
 <div class="container header">
@@ -31,18 +33,18 @@
         <ul  class="con" >
 
             <li  >
-                <div class="btn-default bt">
-                <a href="{:U('index')}" type="submit" class="btn " >摘要列表</a>
+                 <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px; ">
+                <a href="{:U('index')}" type="submit" class=" " style="font-size: 14px;">摘要列表</a>
                 </div>
             </li>
             <li>
-                <div class="btn-default bt">
-                <a href="{:U('Contents')}" type="submit" class="btn " >标题列表</a>
+                <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px;">
+                <a href="{:U('Contents')}" type="submit" class=" " style="font-size: 14px;">标题列表</a>
                 </div>
             </li>
             <li>
-                <div class="btn-default bt">
-                <a href="{:U('message')}" type="submit" class="btn " >留&nbsp;&nbsp;言&nbsp;&nbsp;板</a>
+                <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px;">
+                <a href="{:U('message')}" type="submit" class=" " style="font-size: 14px;">留&nbsp;&nbsp;言&nbsp;&nbsp;板</a>
                 </div>
             </li>
         </ul>
@@ -50,11 +52,20 @@
 </div>
 <div class="pull-left" id="cont">
     <div id='main'>
+        <table id="list">
         <foreach name='taglist' item='v'>
-
-                <div align="" class='title' style="font-size: 22px;color:;"><a id="" href="{:U('read',array('id'=>$v['bid']))}">{$v.title}</a></div>
+                <tr>
+                <div align="" class='title' style="font-size: 22px;color:;"><a id="" href="{:U('read',array('id'=>$v['bid']))}">{$v.title}</a>
+                </div>
+                </tr>
+                <tr>
                 <div align="right" class='time' style="font-size: 12px; color: gray;">标签：{$v.tag}&nbsp;&nbsp;&nbsp;&nbsp;发布于：{$v.createtime}</div>
+                </tr>
+                <tr></tr><tr></tr>
         </foreach>
+        </table>
+         <br>
+     <div align="center" id="changpage"></div>
     </div>
 
         <div class="left"></div>

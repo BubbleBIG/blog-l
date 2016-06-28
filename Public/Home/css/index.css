@@ -10,6 +10,17 @@ body {
     background-size: cover;
     padding-top:20px;
 }
+.bbbb {
+    height: 50px;
+    /*width: 100px;*/
+    border-radius: 10%;
+    background-color: #008800;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#003500), to(#008800));
+    background-image: -webkit-linear-gradient(left, #003500, #008800);
+    background-image:    -moz-linear-gradient(left, #003500, #008800);
+    background-image:     -ms-linear-gradient(left, #003500, #008800);
+    background-image:      -o-linear-gradient(left, #003500, #008800);
+}
 .container {
     height: 150px;
 }
@@ -83,6 +94,11 @@ body {
 }*/
 .contents-btn {
     margin-right: 32%;
+}
+.summary1 {
+    height: 24pt;
+    overflow :hidden;
+    text-overflow: ellipsis;
 }
 .he {
 
