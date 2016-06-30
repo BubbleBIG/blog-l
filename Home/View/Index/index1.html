@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>LongB-BLOG</title>
     <link rel="shortcut icon" href="__PUBLIC__/home/img/v3.png"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="__PUBLIC__/home/css/index.css">
 
@@ -16,48 +17,42 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/component.css" />
+
 </head>
 <body>
-<div class="container header">
+<div class="container header" style="height: ;">
     <nav class="navbar navbar-default">
     <div class="container-fluid">
     <div class="navbar-header">
-    <h2>WelCome</h2>
-      <a class="navbar-brand" href="#">
-        <!-- <img alt="Brand" src="__PUBLIC__/home/img/"> -->
+    <!-- <h2>WelCome</h2> -->
+      <a class="" href="#">
+        <img class="img  " alt="Brand" src="__PUBLIC__/home/img/v3.png" style="width: 100px">燈龍仔
       </a>
     </div>
     </div>
     </nav>
 </div>
-<section class="section section--menu left" id="" style="height: 24px; margin-left: 0%;" >
-        <span class="link-copy"></span>
-            <nav class="menu menu--horatio">
-                <ul class="menu__list">
-                    <li class="menu__item"><a class="menu__link index">摘要列表</a></li>
-                    <li class="menu__item menu__item--current"><a class="menu__link content">标签列表</a></li>
-                    <li class="menu__item"><a class="menu__link messag">留言板</a></li>
-                </ul>
-            </nav>
-    </section>
-    <script type="text/javascript">
-    $('.index').click(function() {
-        location.href="{:U('index')}";
-    });
-    $('.content').click(function() {
-        location.href="{:U('Contents')}";
-    });
-    $('.messag').click(function() {
-        location.href="{:U('message')}";
-    });
-</script>
+<section class="section section--menu" id="horatio" style="
+    height: 24px; margin-right: 0%">
+                <span class="link-copy"></span>
+                <nav class="menu menu--horatio">
+                    <ul class="menu__list">
+                        <li class="menu__item menu__item--current"><a class="menu__link index">摘要列表</a></li>
+                        <li class="menu__item"><a class="menu__link content">标签列表</a></li>
+                        <li class="menu__item"><a class="menu__link messag">留言板</a></li>
+                        <!-- <li class="menu__item"><a class="menu__link">Shop</a></li>
+                        <li class="menu__item"><a class="menu__link">Contact</a></li> -->
+                    </ul>
+                </nav>
+                <!-- <p class="info">Style created by <a href="http://ryjohnson.com">ryjohnson</a></p> -->
+            </section>
 <!-- <div class="menu" >
     <div class="contents-btn" align="right">
         <ul  class="con" >
 
             <li  >
                  <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px; ">
-                <a href="{:U('index')}" type="submit" class=" " style="font-size: 14px;">摘要列表</a>
+                <a href="{:U(index)}" type="submit" class=" " style="font-size: 14px;">摘要列表</a>
                 </div>
             </li>
             <li>
@@ -73,36 +68,46 @@
         </ul>
     </div>
 </div> -->
+<script type="text/javascript">
+    $('.index').click(function() {
+        location.href="{:U('index')}";
+    });
+    $('.content').click(function() {
+        location.href="{:U('Contents')}";
+    });
+    $('.messag').click(function() {
+        location.href="{:U('message')}";
+    });
+</script>
 <div class="pull-left" >
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane" id="home">
-
-    </div>
-    <div role="tabpanel" class="tab-pane  active" id="profile">
-        <table id='list' width="100%">
-        <foreach name='blog' item='v'>
+    <div role="tabpanel" class="tab-pane active" id="home">
+    <table id="list" width="100%">
+    <foreach name='blog' item='v'>
         <tr>
-            <td> <div id="id" class='title' style="font-size: 22px;" ><a id="" href="{:U('read',array('id'=>$v['bid']))}">{$v.title}</a></div>
+            <td >
+            <div id="id" align="center" class='title' style="font-size: 23px;"><a id="" href="{:U('read',array('id'=>$v['bid']))}">{$v.title}</a>
+            </div>
             </td>
         </tr>
         <tr>
-        <td>
-            <div class="" style="color: gray;font-size: 12px;">标签：{$v.tag}</div>
-        </td>
+            <td><div style="color: gray; font-size: 12px;">&nbsp;标签：{$v.tag}</div></td>
         </tr>
-        <tr></tr>
         <tr>
-        <td>
-            <div align="left" class='time' style="margin-left:0;
-            margin-top:3px;font-size: 12px;color: gray;">发布日期：{$v.createtime}</div>
-        </td>
+            <td>
+            <div class='summary1' style="font-size: 14px;"><p>{$v.content}</p></div>
+            </td>
         </tr>
-        </foreach>
-        </table>
-        <div align="center" id="changpage"></div>
+        <tr width="100%" align="right">
+            <td >
+            <div class='time' style="color: gray;font-size: 12px;">发布于：{$v.createtime}</div>
+            </td>
+        </tr>
+    </foreach>
+    </table>
+      <br>
+     <div align="center" id="changpage"></div>
     </div>
-
-    <div role="tabpanel" class="tab-pane" id="messages">3.</div>
   </div>
 </div>
 
@@ -121,7 +126,7 @@
         <form action="{:U('search')}" name="search">
         <table border="0" cellpadding="0" cellspacing="0" class="tab_search" align="center">
             <tr>
-                <td>
+                <td id="searchw">
                     <input type="text"  title="Search" class="searchinput keywords" id="searchinput keywords" name="keywords" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='&nbsp;';" onfocus="if(this.value=='&nbsp;')value='';" value="&nbsp;" size="14"/>
                 </td>
                 <td>
@@ -132,6 +137,9 @@
         </form>
         </div>
     </div>
+    <script>
+
+    </script>
     <div class="tag-view">
     <div class="he" align="center"><p>Taglist</p></div>
         <div class="listtag">
@@ -140,6 +148,10 @@
         <tr class="" name="">
         <td><a class="" style="font-size: ;margin: 0px 5px 0px 5px" id="" href="{:U('count',array('tag'=>$v['tid']))}">{$v.tag}</a></td>
         <td><span class="badge">{$v.num}</span></td>
+        <!-- <li><a class="" style="font-size: ;margin: 0px 5px 0px 5px" id="" href="{:U('count',array('tag'=>'1'))}">其他</a><span class="badge">{$count1}</span></li>
+        <li><a id="" style="font-size: ;margin: 0px 5px 0px 5px" href="{:U('count',array('tag'=>'2'))}">随笔</a><span class="badge">{$count2}</span></li>
+        <li><a id="" style="font-size: ;margin: 0px 5px 0px 5px" href="{:U('count',array('tag'=>'3'))}">PHP</a><span class="badge">{$count3}</span></li>
+        <li><a id="" style="font-size: ;margin: 0px 5px 0px 5px" href="{:U('count',array('tag'=>'4'))}">前端</a><span class="badge">{$count4}</span></li> -->
         </tr>
         </foreach>
         </table>
@@ -173,18 +185,57 @@
 
     <div class="sear pull-left">
 
+
     </div>
+
+
 </div>
 <script src="__PUBLIC__/home/js/page.js"></script>
 <script src="__PUBLIC__/home/js/classie.js"></script>
-<script src="__PUBLIC__/home/js/clipboard.min.js"></script>
+        <script src="__PUBLIC__/home/js/clipboard.min.js"></script>
+        <script>
+        (function() {
+            [].slice.call(document.querySelectorAll('.menu')).forEach(function(menu) {
+                var menuItems = menu.querySelectorAll('.menu__link'),
+                    setCurrent = function(ev) {
+                        ev.preventDefault();
+
+                        var item = ev.target.parentNode; // li
+
+                        // return if already current
+                        if (classie.has(item, 'menu__item--current')) {
+                            return false;
+                        }
+                        // remove current
+                        classie.remove(menu.querySelector('.menu__item--current'), 'menu__item--current');
+                        // set current
+                        classie.add(item, 'menu__item--current');
+                    };
+
+                [].slice.call(menuItems).forEach(function(el) {
+                    el.addEventListener('click', setCurrent);
+                });
+            });
+
+            [].slice.call(document.querySelectorAll('.link-copy')).forEach(function(link) {
+                link.setAttribute('data-clipboard-text', location.protocol + '//' + location.host + location.pathname + '#' + link.parentNode.id);
+                new Clipboard(link);
+                link.addEventListener('click', function() {
+                    classie.add(link, 'link-copy--animate');
+                    setTimeout(function() {
+                        classie.remove(link, 'link-copy--animate');
+                    }, 300);
+                });
+            });
+        })(window);
+        </script>
 <script>
-$(function(){
-  $('.nav a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
-   });
+// $(function(){
+//   $('.nav a').click(function (e) {
+//   e.preventDefault()
+//   $(this).tab('show')
+// })
+//    });
 </script>
 </body>
 

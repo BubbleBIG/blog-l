@@ -60,6 +60,7 @@ class ManagerController extends Controller {
         $id = $blog_num->where(1)->getField('num')+1;;
             $data = array(
                 'title' => $_POST['title'],
+                'name' => '燈龍仔',
                 'content' => $_POST['edit'],
                 'createtime' => date('Y-m-d H:i:s'),
                 );

@@ -13,7 +13,9 @@
 
     <script src="__PUBLIC__/home/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/home/js/index.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/component.css" />
 </head>
 <body>
 <div class="container header">
@@ -29,13 +31,23 @@
     </div>
     </nav>
 </div>
-<div class="menu" >
+<section class="section section--menu left" id="" style="height: 24px; margin-left: 0%;" >
+        <span class="link-copy"></span>
+            <nav class="menu menu--horatio">
+                <ul class="menu__list">
+                    <li class="menu__item"><a class="menu__link index">摘要列表</a></li>
+                    <li class="menu__item"><a class="menu__link content">标签列表</a></li>
+                    <li class="menu__item"><a class="menu__link messag">留言板</a></li>
+                </ul>
+            </nav>
+    </section>
+<!-- <div class="menu" >
     <div class="contents-btn" align="right">
         <ul  class="con" >
 
             <li  >
                  <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px; ">
-                <a href="{:U(index)}" type="submit" class=" " style="font-size: 14px;">摘要列表</a>
+                <a href="{:U('index')}" type="submit" class=" " style="font-size: 14px;">摘要列表</a>
                 </div>
             </li>
             <li>
@@ -50,7 +62,18 @@
             </li>
         </ul>
     </div>
-</div>
+</div> -->
+<script type="text/javascript">
+    $('.index').click(function() {
+        location.href="{:U('index')}";
+    });
+    $('.content').click(function() {
+        location.href="{:U('Contents')}";
+    });
+    $('.messag').click(function() {
+        location.href="{:U('message')}";
+    });
+</script>
 <div class="pull-left" >
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
@@ -95,7 +118,7 @@
     <div class="he" align="center"><span>Search</span></div>
        <div class="panel_head"></div>
         <div  class="form">
-        <form action="{:U(search)}" name="search">
+        <form action="{:U('search')}" name="search">
         <table border="0" cellpadding="0" cellspacing="0" class="tab_search" align="center">
             <tr>
                 <td>
@@ -122,10 +145,7 @@
         <tr class="" name="">
         <td><a class="" style="font-size: ;margin: 0px 5px 0px 5px" id="" href="{:U('count',array('tag'=>$v['tid']))}">{$v.tag}</a></td>
         <td><span class="badge">{$v.num}</span></td>
-        <!-- <li><a class="" style="font-size: ;margin: 0px 5px 0px 5px" id="" href="{:U('count',array('tag'=>'1'))}">其他</a><span class="badge">{$count1}</span></li>
-        <li><a id="" style="font-size: ;margin: 0px 5px 0px 5px" href="{:U('count',array('tag'=>'2'))}">随笔</a><span class="badge">{$count2}</span></li>
-        <li><a id="" style="font-size: ;margin: 0px 5px 0px 5px" href="{:U('count',array('tag'=>'3'))}">PHP</a><span class="badge">{$count3}</span></li>
-        <li><a id="" style="font-size: ;margin: 0px 5px 0px 5px" href="{:U('count',array('tag'=>'4'))}">前端</a><span class="badge">{$count4}</span></li> -->
+
         </tr>
         </foreach>
         </table>
@@ -165,6 +185,8 @@
 
 </div>
 <script src="__PUBLIC__/home/js/page.js"></script>
+<script src="__PUBLIC__/home/js/classie.js"></script>
+<script src="__PUBLIC__/home/js/clipboard.min.js"></script>
 <script>
 $(function(){
   $('.nav a').click(function (e) {

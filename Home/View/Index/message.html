@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/themes/gray.css">
     <script src="__PUBLIC__/home/Js/jquery.min.js"></script>
     <script src="__PUBLIC__/home/Js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/component.css" />
     <style>
         .main {
             width: 74%;
@@ -44,28 +47,27 @@
     </div>
     </nav>
 </div>
-<div class="menu" >
-    <div class="contents-btn" align="right">
-        <ul  class="con" >
-
-            <li  >
-                 <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px; ">
-                <a href="{:U(index)}" type="submit" class=" " style="font-size: 14px;">摘要列表</a>
-                </div>
-            </li>
-            <li>
-                <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px;">
-                <a href="{:U('Contents')}" type="submit" class=" " style="font-size: 14px;">标题列表</a>
-                </div>
-            </li>
-            <li>
-                <div class="btn-default bt" style="border-radius: 12px;padding:5px 2px 5px 2px;">
-                <a href="{:U('message')}" type="submit" class=" " style="font-size: 14px;">留&nbsp;&nbsp;言&nbsp;&nbsp;板</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+<section class="section section--menu left" id="" style="height: 24px; margin-left: 0%;" >
+        <span class="link-copy"></span>
+            <nav class="menu menu--horatio">
+                <ul class="menu__list">
+                    <li class="menu__item "><a class="menu__link index">摘要列表</a></li>
+                    <li class="menu__item"><a class="menu__link content">标签列表</a></li>
+                    <li class="menu__item menu__item--current"><a class="menu__link messag">留言板</a></li>
+                </ul>
+            </nav>
+    </section>
+    <script type="text/javascript">
+    $('.index').click(function() {
+        location.href="{:U('index')}";
+    });
+    $('.content').click(function() {
+        location.href="{:U('Contents')}";
+    });
+    $('.messag').click(function() {
+        location.href="{:U('message')}";
+    });
+</script>
 <div class="main" id="">
     <div id='main'>
     <div>留言板</div>
@@ -154,6 +156,8 @@
   <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/plugins/quote.min.js"></script>
   <script type="text/javascript" src="__PUBLIC__/Admin/js/froala/js/languages/ro.js"></script>
 <script src="__PUBLIC__/home/Js/page2.js"></script>
+<script src="__PUBLIC__/home/js/classie.js"></script>
+<script src="__PUBLIC__/home/js/clipboard.min.js"></script>
 <script>
     $(function(){
       $('#edit').froalaEditor({
