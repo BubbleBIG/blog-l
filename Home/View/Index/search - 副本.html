@@ -12,8 +12,8 @@
     <script src="__PUBLIC__/home/js/jquery.min.js"></script>
 
     <script src="__PUBLIC__/home/js/bootstrap.min.js"></script>
-     <script src="__PUBLIC__/home/js/index.js"></script>
-     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/normalize.css" />
+    <script src="__PUBLIC__/home/js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/component.css" />
 </head>
@@ -22,10 +22,11 @@
     <nav class="navbar navbar-default">
     <div class="container-fluid">
     <div class="navbar-header">
-    <a class="" href="#">
-      <img src="__PUBLIC__/home/img/v3.png" style="width: 11%;vertical-align:middle; ">
-    </a>
-    <b style="color: #95FF9D;font-size: 19pt">燈龍仔--Blog[<i style="font-size: 18px;color: #fbbfc7;font-weight:normal;">只要肯付出，终会有收获！</i>]</b>
+    <h2>WelCome</h2>
+      <a class="navbar-brand" href="#">
+        <!-- <img alt="Brand" src="__PUBLIC__/home/img/"> -->
+
+      </a>
     </div>
     </div>
     </nav>
@@ -73,26 +74,42 @@
         location.href="{:U('message')}";
     });
 </script>
-<div class="pull-left" id="cont">
-    <div id='main'>
-        <foreach name='id' item='v'>
-
-
-                <div align="center" class='title' style="font-size: 22pt;color: #48c9e9;">{$v.title}</div>
-
-                <div class='summary' style=""><p>{$v.content}</p></div>
-
-                <div align="right" class='time' style="font-size: 12px; color: gray;">标签：{$v.tag}&nbsp;&nbsp;&nbsp;&nbsp;发布于：{$v.createtime}</div>
-        </foreach>
+<div class="pull-left" >
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    <table id="list" width="100%">
+    <foreach name='blog' item='v'>
+        <tr>
+            <td >
+            <div id="id" align="center" class='title' style="font-size: 23px;"><a id="" href="{:U('read',array('id'=>$v['bid']))}">{$v.title}</a>
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td><div style="color: gray; font-size: 12px;">&nbsp;标签：{$v.tag}</div></td>
+        </tr>
+        <tr>
+            <td>
+            <div class='summary1' style="font-size: 14px;"><p>{$v.content}</p></div>
+            </td>
+        </tr>
+        <tr width="100%" align="right">
+            <td >
+            <div class='time' style="color: gray;font-size: 12px;">发布于：{$v.createtime}</div>
+            </td>
+        </tr>
+    </foreach>
+    </table>
+      <br>
+     <div align="center" id="changpage"></div>
     </div>
+  </div>
+</div>
 
-        <div class="left"></div>
-        <div  ></div>
-    </div>
 <div class="body">
 <div class="pull-right">
 
-     <div class="info">
+    <div class="info">
     <div class="he ca" align='center'><p>Calendar</p></div>
 
 
@@ -115,6 +132,11 @@
         </form>
         </div>
     </div>
+    <script>
+        // $('#search').click(function() {
+        //     location.href="{:U('search')}" + $('#keywords').val();
+        // })
+    </script>
     <div class="tag-view">
     <div class="he" align="center"><p>Taglist</p></div>
         <div class="listtag">
@@ -123,10 +145,12 @@
         <tr class="" name="">
         <td><a class="" style="font-size: ;margin: 0px 5px 0px 5px" id="" href="{:U('count',array('tag'=>$v['tid']))}">{$v.tag}</a></td>
         <td><span class="badge">{$v.num}</span></td>
+
         </tr>
         </foreach>
         </table>
         </div>
+
     </div>
     <div class="message">
     <div class="he" align="center"><label class="lab">message</label></div>
@@ -150,10 +174,27 @@
     <div class="he" align="center"><p>other</p></div>
 
     </div>
+
+</div>
+
+    <div class="sear pull-left">
+
+
+    </div>
+
+
+</div>
+<script src="__PUBLIC__/home/js/page.js"></script>
 <script src="__PUBLIC__/home/js/classie.js"></script>
 <script src="__PUBLIC__/home/js/clipboard.min.js"></script>
-</div>
-</div>
+<script>
+$(function(){
+  $('.nav a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+   });
+</script>
 </body>
 
 </html>
