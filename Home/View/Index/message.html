@@ -83,7 +83,10 @@
         <div class="collapse" id="collapseExample">
         <div class="well">
         <form name="form" method="post" action="{:U('addmessage')}" name="admin" onSubmit="return InputCheck(this)">
+        <div class=" modal-header" style="padding: 0px 0px 5px 0px;">
         <label>发表你的留言</label>
+        <button type="button" class="close" data-dismiss="modal" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        </div>
           <div class="form-group">
             <input type="text" class="form-control" id="name" name="name" autofocus="autofocus" placeholder="请输入用户名">
           </div>

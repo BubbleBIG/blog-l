@@ -104,7 +104,7 @@
 
                         <div class="" style="height: 50px;  overflow :hidden;text-overflow: ellipsis;">{$v.content}</div>
                         <span class="meta__date"><i class="fa fa-calendar-o"></i>{$v.createtime} </span>
-                        <span class="meta__reading-time">标签：{$v.tag}</span>
+                        <span class="meta__reading-time"><img src="__PUBLIC__/home/img/ic.png" style="width: 15px;vertical-align:middle;" />{$v.tag}</span>
                         </div>
                     </a>
                     </foreach>
@@ -141,9 +141,10 @@
                         <article class="content__item">
                             <div class="title title--full">{$v.title}</div>
                             <div class="meta meta--full">
-                                <span class="meta__author" style="color: #dcdcdc">燈龍仔</span>
+                                <span class="meta__author" style="color: #dcdcdc">{$v.author}</span>
                                 <span class="meta__date"><i class="fa fa-calendar-o"></i>{$v.createtime}</span>
-                                <span class="meta__reading-time">标签：{$v.tag}</span>
+                                <span class="meta__reading-time">
+                                <i><img src="__PUBLIC__/home/img/ic.png" style="width: 20px;vertical-align:middle;" /></i>{$v.tag}</span>
                             </div>
                             {$v.content}
                         </article>

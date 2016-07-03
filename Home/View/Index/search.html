@@ -25,7 +25,7 @@
         <button id="menu-toggle" class="menu-toggle" style="top: 2px"><span>Menu</span></button>
             <div id="theSidebar" class="sidebar" style="width: 23%;margin-left: 1%;background: #F5F5F5;padding: 1%;">
                 <button class="close-button fa fa-fw fa-close" style="top: 0px; padding-top: 5px"></button>
-                <nav class="menu menu--horatio" align="center" style="width: ;font-size: 14px;margin: 28px 5px;">
+                <nav class="menu menu--horatio" style="width: ;font-size: 14px;margin: 28px 5px;">
                         <ul class="menu__list">
                         <li class="menu__item" style="margin: 1px"><a class="menu__link index">摘要列表</a></li>
                         <li class="menu__item" style="margin: 1px"><a class="menu__link contents">标签列表</a></li>
@@ -46,7 +46,7 @@
                 </table>
                 </form>
                 </div>
-                <div class="listtag" style="height: 200px;margin-top: 5px;border: 1px #fff solid">
+                <div class="listtag" style="height: 160px;margin-top: 5px;border: 1px #fff solid">
                     <div class="he" align="left">Taglist</div>
                     <ul class="menu__list">
                     <foreach name="tag" item='v'>
@@ -104,7 +104,7 @@
 
                         <div class="" style="height: 50px;  overflow :hidden;text-overflow: ellipsis;">{$v.content}</div>
                         <span class="meta__date"><i class="fa fa-calendar-o"></i>{$v.createtime} </span>
-                        <span class="meta__reading-time">标签：{$v.tag}</span>
+                        <span class="meta__reading-time"><img src="__PUBLIC__/home/img/ic.png" style="width: 15px;vertical-align:middle;" />{$v.tag}</span>
                         </div>
                     </a>
                     </foreach>
@@ -134,16 +134,17 @@
                     });
                 </script>
                 </section>
-                <section class="content" style="border: 1px #f5f5f5 solid;background: #fff;">
+                <section class="content" style="border: 1px #f5f5f5 solid;background: #fff">
 
                     <div class="scroll-wrap">
                     <foreach name='blog' item='v'>
                         <article class="content__item">
                             <div class="title title--full">{$v.title}</div>
                             <div class="meta meta--full">
-                                <span class="meta__author" style="color: #dcdcdc">燈龍仔</span>
+                                <span class="meta__author" style="color: #dcdcdc">{$v.author}</span>
                                 <span class="meta__date"><i class="fa fa-calendar-o"></i>{$v.createtime}</span>
-                                <span class="meta__reading-time">标签：{$v.tag}</span>
+                                <span class="meta__reading-time">
+                                <img src="__PUBLIC__/home/img/ic.png" style="width: 20px;vertical-align:middle;" />{$v.tag}</span>
                             </div>
                             {$v.content}
                         </article>

@@ -1,6 +1,7 @@
+html
 body {
     /*background:#2d3b36 url(../img/1.png)no-repeat center center fixed;*/
-    background: #000;
+    background: #f5f5f5;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

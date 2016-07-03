@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LongB-BLOG</title>
+        <link rel="shortcut icon" href="__PUBLIC__/home/img/v3.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="__PUBLIC__/home/css/bootstrap.min.css">
+
+    <script src="__PUBLIC__/home/js/jquery.min.js"></script>
+
+    <script src="__PUBLIC__/home/js/bootstrap.min.js"></script>
+    <!-- <script src="{$Think.const.ADMIN_JS_URL}"></script> -->
+    <!-- <link rel="stylesheet" href="{$Think.const.ADMIN_JS_URL}add.js"> -->
+    <!-- <script type="text/javascript" src="{$Think.const.ADMIN_JS_URL}add.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/froala_editor.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/froala_style.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/code_view.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/colors.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/emoticons.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/image_manager.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/image.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/line_breaker.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/table.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/char_counter.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/video.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/fullscreen.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/plugins/file.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/themes/royal.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+
+  <link rel="stylesheet" href="__PUBLIC__/Admin/css/index.css">
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    div#editor {
+      width: 80%;
+      margin: auto;
+      text-align: left;
+    }
+
+  </style>
+
+
+</head>
+<body>
+<div class="header" style="width:80%;background: #cdcdcd;margin: -20px 9% 20px 10%; ">
+  <div class="hide1" style="display: none;">
+  <a class="" href="#">
+      <img src="__PUBLIC__/home/img/v3.png" style="width: 10%;vertical-align:middle; ">
+    </a>
+    <b style="color: #95FF9D;font-size: 19pt">燈龍仔--Blog[<i style="font-size: 18px;color: #fbbfc7;font-weight:normal;">只要肯付出，终会有收获！</i>]</b>
+  </div>
+  <div class="" align="center" style="width: 100%">
+    <a class="btn"><b>click me</b></a>
+  </div>
+</div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('.header').click(function() {
+        $('.hide1').slideToggle('slow');
+       });
+    });
+  </script>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a type="submit" class="btn btn-success">主页信息</a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="{:U('blog')}" type="submit" class="btn btn-success">博客管理</a>
+  </div>
+  <div class="btn-group" role="group">
+    <a type="submit" class="btn btn-success">留言管理</a>
+  </div>
+  <div class="btn-group" role="group">
+    <a type="submit" class="btn btn-success">信息中心</a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="/blog/Home/Index/" target="_black" type="submit" class="btn btn-success">前往前台</a>
+  </div>
+  <div class="btn-group" role="group">
+    <a type="submit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="退出登陆" onclick="if (confirm('sure??')) return true; else return false;" href="{:U('logout')}" target="_top">安全退出</a>
+  </div>
+</div>
+
+
+    <div role="tabpanel" class="tab-pane active" id="Labelclass" align="center">
+    <div style="background: #fff; width: 65%">
+      <div>
+      <label>添加Tag</label>
+        <form class="navbar-form" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Add Tag">
+          </div>
+          <button type="submit" class="btn btn-default">添加</button>
+        </form>
+      </div>
+    <table class="table table-list table-striped table-bordered" style="width: 40%">
+      <tr>
+        <th>标签名</th>
+        <th>数目</th>
+        <!-- <th>操作</th> -->
+      </tr>
+      <foreach name="tag" item="v">
+        <tr>
+          <td>{$v.tag}</td>
+          <td>{$v.num}</td>
+          <!-- <td><a href="###">查看</td> -->
+        </tr>
+      </foreach>
+    </table>
+
+    </div>
+    </div>
+
+
+</body>
+</html>

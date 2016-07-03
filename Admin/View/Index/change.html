@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>LongB-BLOG</title>
+        <link rel="shortcut icon" href="__PUBLIC__/home/img/v3.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="__PUBLIC__/home/css/bootstrap.min.css">
@@ -52,7 +53,24 @@
 
 </head>
 <body>
-<div class="header">welcome</div>
+<div class="header" style="width:80%;background: #cdcdcd;margin: -20px 9% 20px 10%; ">
+  <div class="hide1" style="display: none;">
+  <a class="" href="#">
+      <img src="__PUBLIC__/home/img/v3.png" style="width: 10%;vertical-align:middle; ">
+    </a>
+    <b style="color: #95FF9D;font-size: 19pt">燈龍仔--Blog[<i style="font-size: 18px;color: #fbbfc7;font-weight:normal;">只要肯付出，终会有收获！</i>]</b>
+  </div>
+  <div class="" align="center" style="width: 100%">
+    <a class="btn"><b>click me</b></a>
+  </div>
+</div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('.header').click(function() {
+        $('.hide1').slideToggle('slow');
+       });
+    });
+  </script>
 <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 80%;margin-left: 10%">
   <div class="btn-group" role="group">
     <a href="{:U('index')}" type="submit" class="btn btn-success">主页信息</a>
@@ -67,33 +85,26 @@
     <a type="submit" class="btn btn-success">信息中心</a>
   </div>
   <div class="btn-group" role="group">
-    <a type="submit" class="btn btn-success">前往前台</a>
+    <a href="/blog/Home/Index/" target="_black" type="submit" class="btn btn-success">前往前台</a>
   </div>
   <div class="btn-group" role="group">
-    <a type="submit" class="btn btn-warning">安全退出</a>
+    <a type="submit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="退出登陆" onclick="if (confirm('sure??')) return true; else return false;" href="{:U('logout')}" target="_top">安全退出</a>
   </div>
 </div>
 
 
   <script>
-    function InputCheck(AddbForm)
-{
-    if (AddbForm.title.value == "")
+    function InputCheck(ChangbForm) {
+    if (ChangbForm.title.value == "")
     {
-        alert("标题不能为空!");
-        AddbForm.title.focus();
-        return (false);
-    }
-    if (AddbForm.edit.value == "")
-    {
-        alert("内容不能为空!");
-        AddbForm.edit.focus();
+        alert("标题不能为空!!");
+        ChangbForm.title.focus();
         return (false);
     }
     if (ChangbForm.edit1.value == "")
     {
         alert("内容不能为空!");
-        AddbForm.edit1.focus();
+        ChangbForm.edit1.focus();
         return (false);
     }
 }

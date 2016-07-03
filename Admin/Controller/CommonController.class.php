@@ -2,11 +2,10 @@
 namespace Admin\Controller;
 use Think\Controller;
 class CommonController extends Controller {
-  Public function _initialize_ () {
-    if (!isset($_SESSION['aid'])||!isset($_SESSION['username'])) {
-        $this->redirect('Manager/login')
-        # code...
+  public function _initialize (){
+    if (!isset($_SESSION['aid']) || !isset($_SESSION['username'])) {
+        $this->redirect('Admin/Login/login');
     }
-  }
+    }
 }
 ?>

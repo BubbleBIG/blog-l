@@ -5,13 +5,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/css/login.css">
 <script type="text/javascript" src="__PUBLIC__/admin/js/login.js"></script>
-<title>用户登录</title>
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.min.js"></script>
+<title>LongB-BLOG</title>
+<link rel="shortcut icon" href="__PUBLIC__/home/img/v3.png"/>
 </head>
 <body>
+
+<header>
+    <div align="center" class="ba">
+    <a class="" href="/blog/Home/Index">
+      <img src="__PUBLIC__/home/img/v3.png" style="width: 11%;vertical-align:middle;">
+
+    <b style="color: #95FF9D;font-size: 19pt">燈龍仔--Blog[<i style="font-size: 18px;color: #fbbfc7;font-weight:normal;">只要肯付出，终会有收获！</i>]</b><br>
+    </a>
+        <!-- <a class="btn" type="button" href="/blog/Home/Index"><b>前往查看Blog主页</b></a> -->
+    </div>
+</header>
 <div class="login">
 <fieldset>
 <legend>用户登录/Login</legend>
-<form name="form1" method="post" action="{:U('handle')}" name="admin" onSubmit="return InputCheck(this)">
+<form name="form1" method="post" action="{:U('hlogin')}" name="admin" onSubmit="return InputCheck(this)">
 <div class="log">
 <p>
 <label for="username" class="label">用户名:</label>
@@ -23,15 +36,15 @@
 <p/>
 <p>
 <label for="code" class="label">验证码:</label>
-<input id="code" name="code" type="text" class="input" /><!-- <img class="code" src="__CONTROLLER__/code" /> -->
+<input id="code" name="code" type="text" class="input" />
 <img src="__CONTROLLER__/Verify" alt="点击刷新" height="30" align="bottom" class="code" style="cursor:pointer;"  onclick="javascript:this.src='__CONTROLLER__/Verify?d='+Math.random();" />
 <p/>
 </div>
 
 <div class="button left">
-      <input type="submit" value="登 录" name="B1" >
-      <input type="reset" value="重 置">
-      <input type="hidden" name="submit" value="login">
+      <input type="submit" value="登 录" name="B1" class="btn sub" id="chk_math">
+      <input type="reset" value="重 置" class="btn res" >
+      <!-- <input type="hidden" name="submit" value="login"> -->
 </div>
 
 <!-- <input type="submit" name="submit" value="  确 定  " class="left" /> -->

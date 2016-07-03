@@ -11,4 +11,8 @@ return array(
 //    'TMPL_PARSE_STRING' => array(
 //        '_PUBLIC_' => __ROOT__ .'/' . APP_NAME .'Punlic'
 //    ),
+    'URL_ROUTER_ON' => true,
+    'URL_ROUTE_RULES' => array(
+        '1/:1' => 'Admin/Index/index' ,
+        ),
 );
