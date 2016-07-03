@@ -116,7 +116,7 @@
         <foreach name='wish' item='v'>
         <div>&nbsp;<img src="{$Think.const.IMG_URL}person2.png"><m style="color: #0090f9;font-size: 15px"><b>{$v.username}</b></m>&nbsp;&nbsp;<m style="color: gray; font-size: 12px;">第{$v.id}楼</m></div>
         <div class="tex"><p style="margin-left: 28px;">{$v.content}</p></div>
-        <div class="time"><m>{$v.time|date='Y-m-d H:i',###}</m></div>
+        <div class="time"><m>{$v.time}</m></div>
         <hr>
         </foreach>
     </div>

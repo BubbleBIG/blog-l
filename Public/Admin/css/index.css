@@ -104,3 +104,23 @@ body {
     font-size: 16px;
     margin-top: 4%;
 }
+/*message*/
+.time .message, .time .message a {
+    border: none;
+    background: #fff;
+    color: #bcbcbc;
+}
+.time .rep:hover,.sub:hover {
+    color: #36CAEB;
+    font-weight: bolder;
+    /*font-size: 14px;*/
+}
+.time .del a {
+    text-decoration: none;
+}
+.time .del a:hover {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bolder;
+    /*font-size: 14px;*/
+}

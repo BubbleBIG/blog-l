@@ -87,7 +87,7 @@ class IndexController extends Controller {
             $data = array(
                 'username' => $_POST['name'],
                 'content' => $_POST['edit'],
-                'time' => time(),
+                'time' => date('Y-m-d H:i:s'),
 
                 );
             // print_r($data);

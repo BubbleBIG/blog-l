@@ -11,9 +11,7 @@
     <script src="__PUBLIC__/home/js/jquery.min.js"></script>
 
     <script src="__PUBLIC__/home/js/bootstrap.min.js"></script>
-    <!-- <script src="{$Think.const.ADMIN_JS_URL}"></script> -->
-    <!-- <link rel="stylesheet" href="{$Think.const.ADMIN_JS_URL}add.js"> -->
-    <!-- <script type="text/javascript" src="{$Think.const.ADMIN_JS_URL}add.js"></script> -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/froala_editor.css">
   <link rel="stylesheet" href="__PUBLIC__/Admin/js/froala/css/froala_style.css">
@@ -79,7 +77,7 @@
     <a href="{:U('blog')}" type="submit" class="btn btn-success">博客管理</a>
   </div>
   <div class="btn-group" role="group">
-    <a type="submit" class="btn btn-success">留言管理</a>
+    <a href="{:U('message')}" type="submit" class="btn btn-success">留言管理</a>
   </div>
   <div class="btn-group" role="group">
     <a type="submit" class="btn btn-success">信息中心</a>
@@ -106,27 +104,40 @@
         <div class="" style="margin-left: 52px"><m>{$v.content}</m></div>
         </tr>
         <tr>
-        <div class="time"><m style="font-size: 12px;margin-left: 52px">{$v.time|date='Y-m-d H:i',###}&nbsp;&nbsp;[<a id="add{$v.id}" class="rep"  type="submit" href="###">回复</a>]&nbsp;&nbsp;[<a href="###">删除</a>]</m>
+        <div class="time"><m style="font-size: 12px;margin-left: 52px">{$v.time}&nbsp;&nbsp;<input id="add{$v.id}" class="message rep"  type="button" value="回复" >&nbsp;&nbsp;<button class="message del" type="submit"><a href="{:U('delmessage',array('id'=>$v['id']))}" onclick="if (confirm('确定删除?')) return true; else return false;"> 删除</a></button></m>
         <hr style="margin-left: 52px;margin-top: -1px;">
+        <tr>
+          <div style="margin-left: 52px;font-size: 12px"><img src="{$v.picture}"><b style="color:#FE6FC6">{$v.rname}&nbsp;</b><m style="">{$v.reply}</m></div>
+        </tr>
+        <tr>
+          <div style="font-size: 12px;margin-left: 76px">{$v.rtime}</div>
+        </tr>
 
         </div>
         </tr>
         <div id="aaa{$v.id}" style="margin-left: 52px;width: 50%">
         <div class="">
-        <form name="form" method="post" action="{:U('addmessage')}" name="admin" onSubmit="return InputCheck(this)">
+        <form name="form" method="post" action="{:U('addreply',array('id'=>$v['id']))}" name="addreply" onSubmit="return InputCheck(this)">
           <div class="form-group">
-            <input type="text" class="form-control" id="name rname" name="name" value="{$v.id}" onMouseOver="this.className='input'" disabled="true"　readOnly="true">
+
           </div>
           <div class="form-group">
-            <textarea rows="3" id="edi" name="edi" class="form-control"></textarea>
+            <textarea rows="3" id="treply" name="treply" class="form-control"></textarea>
           </div>
           <!-- <input class="" type="submit" value="发布" style="color: "/> -->
-          <a class="btn" type="submit">发布</a>
+          <button class="btn sub" type="submit" style="width:100%;padding: 3px 6px 3px 6px;">发布</button>
 
         </form>
         </div>
         </div>
         <script>
+        function InputCheck(AddForm){
+          if (AddForm.treply.value == ""){
+              alert("内容不能为空!");
+              AddForm.treply.focus();
+              return (false);
+          }
+        }
           $(document).ready(function() {
     $('#aaa{$v.id}').hide();
     $('#add{$v.id}').click(function() {

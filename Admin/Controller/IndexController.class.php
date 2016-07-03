@@ -154,7 +154,45 @@ class IndexController extends CommonController {
         $this->assign('wish',$wish->order("id desc")->select());
         $this->display();
     }
-
+    //留言回复
+    function addreply() {
+        $wish =M('wish');
+        $mess_reply = M('mess_reply');
+        $id = $_GET['id'];
+        // $data = array(
+        //     'rid' => $id,
+        //     'reply' => $_POST['treply'],
+        //     'rname' => '燈龍仔',
+        //     'rtime' => date('Y-m-d H:i:s'),
+        //     );
+        $data = array(
+            'rid' => $id,
+            'picture' => '/blog/Public/home/img/v.png',
+            'reply' => $_POST['treply'],
+            'rname' => '燈龍仔',
+            'rtime' => date('Y-m-d H:i:s'),
+            );
+            if($wish->where(array('id' => $id ))->save($data)&&$mess_reply->add($data)) {
+            $this -> redirect('message');
+            } else {
+            $this->error('失败');
+           }
+        // print_r($id);
+        // print_r($data);
+    }
+    // 删除留言
+    function delmessage() {
+        $wish =M('wish');
+        $mess_reply = M('mess_reply');
+        $id = $_GET['id'];
+        // print_r($id);
+        $mess_reply->where(array('rid'=>$id))->delete();
+        if($wish->where(array('id'=>$id))->delete()) {
+            $this -> redirect('message');
+            } else {
+            $this->error('失败');
+           }
+    }
     //退出登陆
     function logout() {
         // session(null);
