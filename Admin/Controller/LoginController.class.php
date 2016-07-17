@@ -21,10 +21,7 @@ class LoginController extends Controller {
         $code=I('post.code');
         $junge=$this->check_verify($code);
         // if (!IS_POST)  U('login');
-        if (!$junge) {
-            $this->error('验证码错误');
-        // //     # code...
-        }
+
             // echo "code right";
         $log = M('Admin');
         $ip = M('ip');
@@ -34,9 +31,16 @@ class LoginController extends Controller {
         $user = $log->where(array('a_name'=>$username))->find();
         if (!$user||$user['a_password']!=$password) {
             # code...
-            $this->error('账号或密码错误');
+            echo "<script>alert('账号或密码错误') ;window.location.href='login.html';</script>";
+            // echo "<script>document.write('账号或密码错误');</script>";
+            // $this->error('账号或密码错误');
         }else{
-            echo "right";
+            if (!$junge) {
+            // $this->error('验证码错误');
+        // //     # code...
+            echo "<script>alert('验证码错误') ;window.location.href='login.html';</script>";
+        }else {
+            // echo "right";
             $log->create();
             // $data=array(
             //     'logintime'=>date('Y-m-d H:i:s'),
@@ -59,6 +63,8 @@ class LoginController extends Controller {
                 $this->redirect('Index/index');
             }
         }
+        }
+
 
     }
     //验证码检验

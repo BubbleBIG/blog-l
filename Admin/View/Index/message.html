@@ -107,10 +107,10 @@
         <div class="time"><m style="font-size: 12px;margin-left: 52px">{$v.time}&nbsp;&nbsp;<input id="add{$v.id}" class="message rep"  type="button" value="回复" >&nbsp;&nbsp;<button class="message del" type="submit"><a href="{:U('delmessage',array('id'=>$v['id']))}" onclick="if (confirm('确定删除?')) return true; else return false;"> 删除</a></button></m>
         <hr style="margin-left: 52px;margin-top: -1px;">
         <tr>
-          <div style="margin-left: 52px;font-size: 12px"><img src="{$v.picture}"><b style="color:#FE6FC6">{$v.rname}&nbsp;</b><m style="">{$v.reply}</m></div>
+          <m style="margin-left: 52px;font-size: 12px"><img src="{$v.picture}"><b style="color:#FE6FC6">{$v.rname}&nbsp;</b><m style="">{$v.reply}</m></m>
         </tr>
         <tr>
-          <div style="font-size: 12px;margin-left: 76px">{$v.rtime}</div>
+          <m style="font-size: 12px;margin-left: 76px">{$v.rtime}</m>
         </tr>
 
         </div>

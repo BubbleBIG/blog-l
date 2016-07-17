@@ -15,4 +15,5 @@ return array(
     'URL_ROUTE_RULES' => array(
         '1/:1' => 'Admin/Index/index' ,
         ),
+    'URL_DENY_SUFFIX' => 'pdf|ico|png|gif|jpg|js|css',
 );
